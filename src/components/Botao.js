@@ -4,7 +4,6 @@ import { TouchableOpacity, Text } from 'react-native';
 
 export default function Botao(props) {
     const lidarComClique = () => {
-
     };
 
     return (
