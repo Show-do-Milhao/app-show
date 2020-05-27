@@ -4,20 +4,28 @@ import { TouchableOpacity, Text } from 'react-native';
 
 export default function Botao(props) {
     const lidarComClique = () => {
-        console.log('Botao Clicável')
+
     };
 
     return (
         <TouchableOpacity
-        onPress= {props.onPress}
+            onPress={props.onPress}
             style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: 'red',
-                height: props.altura,
-                marginTop: 10
+                backgroundColor: '#363636',
+                height: 50,
+                marginTop: 10,
+                width: props.largura,
+                borderRadius: 50,
             }}>
-            <Text>{props.texto}</Text>
+            <Text style={{
+                fontSize: 20,
+                fontWeight: 'bold',
+                color: 'white'
+            }}>
+                {props.texto}
+            </Text>
         </TouchableOpacity>
     )
 }

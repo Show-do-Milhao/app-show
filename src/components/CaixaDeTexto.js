@@ -16,6 +16,7 @@ export default function  CaixaDeTexto() {
       borderColor: 'white',
       borderWidth: 1,
       borderRadius: 5,
+      alignSelf: 'center'
       
     }}
     onChangeText={text => onChangeText(text)}
