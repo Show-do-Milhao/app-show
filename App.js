@@ -1,26 +1,14 @@
-import React, { Component } from 'react';
-import { TextInput } from 'react-native';
+import React , {useState} from 'react';
+import { View , Alert} from 'react-native';
+import CaixaDeTexto from './src/components/CaixaDeTexto';
 
 
-export default function  CaixaDeTexto() {
-  const [value, onChangeText] = React.useState('Exemplo');
+export default function App() {
+    const [value, onChangeText] = useState('');
 
   return (
-    <TextInput
-    style={{ 
-      color: 'white',
-      textAlign: 'center',
-      fontSize: 20,
-      height: 50,
-      width: 300,
-      borderColor: 'white',
-      borderWidth: 1,
-      borderRadius: 5,
-      alignSelf: 'center'
-      
-    }}
-    onChangeText={text => onChangeText(text)}
-    value={value}
-    />
-  );
+      <CaixaDeTexto placeholder= {'Email'} onChangeText={onChangeText} value={value}>
+          
+      </CaixaDeTexto>
+  )
 }
