@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 
 
-export default function  CaixaDeEmail() {
+export default function  CaixaDeTexto() {
   const [value, onChangeText] = React.useState('Exemplo');
 
   return (
