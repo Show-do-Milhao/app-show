@@ -4,9 +4,8 @@ import image from './src/img/background_milhao.jpg'
 import logo from './src/img/icone_milhao.png'
 import Styles from './src/styles/Styles'
 import Botao from './src/components/Botao'
-import CaixaDeTexto from './src/components/CaixaDeTexto';
 
-const Login = () => {
+const BuscarUsuario = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
@@ -14,22 +13,17 @@ const Login = () => {
                     <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                         <Image source={logo} style={Styles.logo} />
                     </View>
-                    <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-                        <CaixaDeTexto placeholder='Email' />
-                        <CaixaDeTexto placeholder='Senha' marginTop={20} />
-                        <TouchableOpacity style={{ marginTop: 10 }}>
-                            <Text style={{ color: 'white' }}>Esqueceu a senha?</Text>
-                        </TouchableOpacity>
+                    <View style={{ justifyContent: "center", flex: 1 }}>
+                        <Text style={{ fontSize: 30, color: 'white', alignItems: "center", textAlign: "center", ...Styles.textWithShadow, lineHeight: 40 }}>Enviamos um link de redefinição de senha para:</Text>
+                        <Text style={{ fontSize: 30, color: 'white', alignItems: "center", textAlign: "center", ...Styles.textWithShadow }}>-------@gmail.com</Text>
                     </View>
-                    <View style={{ alignItems: "center", justifyContent: "space-evenly", flex: 1 }}>
-                        <Botao width={150} height={50} text='Login' />
-                        <Botao width={150} height={50} text='Registre-se' />
+                    <View style={{ alignItems: "center", justifyContent: "flex-start", flex: 1 }}>
+                        <Botao width={200} height={70} text='Continuar' />
                     </View>
                 </ImageBackground>
             </View>
         </SafeAreaView>
-
     );
 };
 
-export default Login;
+export default BuscarUsuario;

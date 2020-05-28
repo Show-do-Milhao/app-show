@@ -13,7 +13,7 @@ export default function Botao(props) {
                 alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: '#8499A2',
-                height: 50,
+                height: props.height,
                 marginTop: 10,
                 width: props.width,
                 borderRadius: 50,

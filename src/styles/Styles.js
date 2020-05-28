@@ -10,11 +10,11 @@ const styles = StyleSheet.create({
         resizeMode: 'cover', // or 'stretch'
         justifyContent: "center"
     },
-    logo:{
-        justifyContent:"flex-start",
-        width:500,
-        height:10,
+    logo: {
+        width: '100%',
+        resizeMode: 'contain',
     },
+
     foto: {
         width: 150,
         height:180,
@@ -22,6 +22,12 @@ const styles = StyleSheet.create({
         borderColor: 'red',
         borderRadius: 55
     },
+    textWithShadow: {
+        textShadowColor: 'black',
+        textShadowOffset: { width: -1, height: 1 },
+        textShadowRadius: 10
+    }
+
 });
 
 export default styles;

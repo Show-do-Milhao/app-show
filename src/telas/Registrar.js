@@ -6,24 +6,23 @@ import Styles from './src/styles/Styles'
 import Botao from './src/components/Botao'
 import CaixaDeTexto from './src/components/CaixaDeTexto';
 
-const Login = () => {
+const Registrar = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
                 <ImageBackground source={image} style={Styles.background}>
-                    <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+                    <View style={{ alignItems: "center", justifyContent: "center", flex: 2 }}>
                         <Image source={logo} style={Styles.logo} />
                     </View>
-                    <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-                        <CaixaDeTexto placeholder='Email' />
+                    <View style={{ alignItems: "center", justifyContent: "flex-end", flex: 3 }}>
+                        <Text style={{fontSize:50, color:'white', marginBottom:20}}>Crie sua conta</Text>
+                        <CaixaDeTexto placeholder='Nickname' />
+                        <CaixaDeTexto placeholder='E-mail' marginTop={20} />
                         <CaixaDeTexto placeholder='Senha' marginTop={20} />
-                        <TouchableOpacity style={{ marginTop: 10 }}>
-                            <Text style={{ color: 'white' }}>Esqueceu a senha?</Text>
-                        </TouchableOpacity>
+                        <CaixaDeTexto placeholder='Confirma senha' marginTop={20} />
                     </View>
-                    <View style={{ alignItems: "center", justifyContent: "space-evenly", flex: 1 }}>
-                        <Botao width={150} height={50} text='Login' />
-                        <Botao width={150} height={50} text='Registre-se' />
+                    <View style={{ alignItems: "center", justifyContent: "flex-end", flex: 1 }}>
+                        <Botao width={250} height={70} text='Registre-se' />
                     </View>
                 </ImageBackground>
             </View>
@@ -32,4 +31,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Registrar;
