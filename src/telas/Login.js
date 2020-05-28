@@ -22,8 +22,8 @@ const Login = () => {
                         </TouchableOpacity>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "space-evenly", flex: 1 }}>
-                        <Botao width={150} text='Login' />
-                        <Botao width={150} text='Registre-se' />
+                        <Botao width={150} height={50} text='Login' />
+                        <Botao width={150} height={50} text='Registre-se' />
                     </View>
                 </ImageBackground>
             </View>

@@ -10,10 +10,15 @@ const styles = StyleSheet.create({
         resizeMode: 'cover', // or 'stretch'
         justifyContent: "center"
     },
-    logo:{
-        width:'100%',
-        resizeMode:'contain',
+    logo: {
+        width: '100%',
+        resizeMode: 'contain',
     },
+    textWithShadow: {
+        textShadowColor: 'black',
+        textShadowOffset: { width: -1, height: 1 },
+        textShadowRadius: 10
+    }
 });
 
 export default styles;
