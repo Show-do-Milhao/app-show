@@ -7,15 +7,13 @@ const styles = StyleSheet.create({
     },
     background: {
         flex: 1,
-        resizeMode: 'cover', // or 'stretch'
+        resizeMode: 'cover', 
         justifyContent: "center"
     },
     logo: {
         width: '100%',
         resizeMode: 'contain',
     },
-<<<<<<< HEAD
-
     foto: {
         width: 150,
         height:180,
@@ -23,17 +21,11 @@ const styles = StyleSheet.create({
         borderColor: 'red',
         borderRadius: 55
     },
-=======
->>>>>>> bb89553890d0d78025cedaec0bfa622451c88289
     textWithShadow: {
         textShadowColor: 'black',
         textShadowOffset: { width: -1, height: 1 },
         textShadowRadius: 10
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> bb89553890d0d78025cedaec0bfa622451c88289
 });
 
 export default styles;
