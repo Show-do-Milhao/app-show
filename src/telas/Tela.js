@@ -11,8 +11,8 @@ const Login = () => {
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
                 <ImageBackground source={image} style={Styles.background}>
-                    <View style={{ flex: 1 }}>
-                        <Image source={logo} />
+                    <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
+                        <Image source={logo} style={Styles.logo} />
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                         <CaixaDeTexto placeholder='Email' />

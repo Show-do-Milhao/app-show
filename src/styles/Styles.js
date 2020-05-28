@@ -11,9 +11,8 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     logo:{
-        justifyContent:"flex-start",
-        width:500,
-        height:10,
+        width:'100%',
+        resizeMode:'contain',
     },
 });
 
