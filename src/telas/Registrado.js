@@ -5,7 +5,7 @@ import logo from './src/img/icone_milhao.png'
 import Styles from './src/styles/Styles'
 import Botao from './src/components/Botao'
 
-const BuscarUsuario = () => {
+const Registrado = () => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
@@ -14,11 +14,12 @@ const BuscarUsuario = () => {
                         <Image source={logo} style={Styles.logo} />
                     </View>
                     <View style={{ justifyContent: "center", flex: 1 }}>
-                        <Text style={{ fontSize: 30, color: 'white', alignItems: "center", textAlign: "center", ...Styles.textWithShadow, lineHeight: 40 }}>Enviamos um link de redefinição de senha para:</Text>
-                        <Text style={{ fontSize: 30, color: 'white', alignItems: "center", textAlign: "center", ...Styles.textWithShadow }}>-------@gmail.com</Text>
+                        <Text style={{ fontSize: 30, color: 'white', alignItems: "center", textAlign: "center", ...Styles.textWithShadow, lineHeight: 40 }}>
+                            Parabéns! Você foi registrado com sucesso. Agora clique em voltar e digite seu usuário e senha para jogar.
+                        </Text>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "flex-start", flex: 1 }}>
-                        <Botao width={200} height={70} text='Continuar' />
+                        <Botao width={200} height={70} text='Voltar' />
                     </View>
                 </ImageBackground>
             </View>
@@ -26,4 +27,4 @@ const BuscarUsuario = () => {
     );
 };
 
-export default BuscarUsuario;
+export default Registrado;
