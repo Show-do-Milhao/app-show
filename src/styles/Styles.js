@@ -15,6 +15,13 @@ const styles = StyleSheet.create({
         width:500,
         height:10,
     },
+    foto: {
+        width: 150,
+        height:180,
+        alignSelf: 'center',
+        borderColor: 'red',
+        borderRadius: 55
+    },
 });
 
 export default styles;
