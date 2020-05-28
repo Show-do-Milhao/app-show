@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const background = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: "column"
@@ -17,4 +17,4 @@ const background = StyleSheet.create({
     },
 });
 
-export default background;
+export default styles;
