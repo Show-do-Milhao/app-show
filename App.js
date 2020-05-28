@@ -1,15 +1,17 @@
 import React from 'react';
-import { View , Text} from 'react-native';
+import { View , Alert} from 'react-native';
 import Alternativas from './src/components/Alternativas';
 
 
 export default function App() {
-    
+  
   return (
       <View>
-      <Alternativas texto = 'Login'
-
-      />
+          <Alternativas
+          textnumber= {1} 
+           text= 'Ola mundo'
+           />
+           
       </View>
   )
 }
