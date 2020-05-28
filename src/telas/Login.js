@@ -1,10 +1,10 @@
 import React from 'react';
 import { SafeAreaView, View, Text, Button, ImageBackground, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
-import image from './src/img/background_milhao.jpg'
-import logo from './src/img/icone_milhao.png'
-import Styles from './src/styles/Styles'
-import Botao from './src/components/Botao'
-import CaixaDeTexto from './src/components/CaixaDeTexto';
+import image from '../img/background_milhao.jpg'
+import logo from '../img/icone_milhao.png'
+import Styles from '../styles/Styles'
+import Botao from '../components/Botao'
+import CaixaDeTexto from '../components/CaixaDeTexto';
 
 const Login = () => {
     return (
