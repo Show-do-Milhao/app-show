@@ -13,7 +13,8 @@ export default function CaixaDeTexto(props) {
         fontSize: 20,
         height: 50,
         width: 300,
-        borderColor: 'white',
+        marginTop: props.marginTop,
+        borderColor: '#B88E44',
         borderWidth: 1,
         borderRadius: 5,
         alignSelf: 'center'

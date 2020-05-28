@@ -12,18 +12,20 @@ export default function Botao(props) {
             style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: '#363636',
+                backgroundColor: '#8499A2',
                 height: 50,
                 marginTop: 10,
-                width: props.largura,
+                width: props.width,
                 borderRadius: 50,
+                borderColor: '#B88E44',
+                borderWidth: 2
             }}>
             <Text style={{
                 fontSize: 20,
                 fontWeight: 'bold',
                 color: 'white'
             }}>
-                {props.texto}
+                {props.text}
             </Text>
         </TouchableOpacity>
     )
