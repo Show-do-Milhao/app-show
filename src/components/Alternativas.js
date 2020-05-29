@@ -12,7 +12,9 @@ export default function Alternativas(props) {
                 borderColor: '#B88E44',
                 borderRadius: 10,
                 borderWidth: 2,
-                flexDirection: 'row'
+                flexDirection: 'row',
+                backgroundColor: 'white'
+
             }}>
             <Text style={{
                 fontSize: 28,
@@ -22,7 +24,8 @@ export default function Alternativas(props) {
                 width: 35,
                 height: 35,
                 borderRadius: 50,
-                textAlign: 'center'
+                textAlign: 'center',
+                marginLeft: 2
             }}>
                 {props.textnumber}
             </Text>

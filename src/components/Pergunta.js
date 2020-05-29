@@ -7,7 +7,7 @@ export default function Pergunta(props) {
             <Text style={{
                 textAlign: 'center',
                 fontSize: 18,
-                height: 80,
+                height: 100,
                 width: 400,
                 borderColor: '#B88E44',
                 borderWidth: 1,
