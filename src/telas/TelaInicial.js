@@ -18,6 +18,9 @@ export default function TelaInicial({navigation}) {
     const acessaRanking = () => {
       navigation.push('SeuRanking');
     }
+    const acessaJogo = () => {
+      navigation.push('VamosJogo');
+    }
 
 
   return(
@@ -28,8 +31,8 @@ export default function TelaInicial({navigation}) {
         <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>INDIRA</Text>
       </View>
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
-          <Botao text = 'Iniciar Jogo' width= {250} height= {55}/>
-          <Botao text = 'Perfil' onPress = {acessaPerfil} width= {250} height= {55}/>
+          <Botao text = 'Iniciar Jogo' width= {250} height= {55} onPress={acessaJogo}/>
+          <Botao text = 'Perfil'  width= {250} height= {55} onPress = {acessaPerfil}/>
           <Botao text = 'Ranking' width= {250} height= {55} onPress={acessaRanking}/>
       </View>
 
