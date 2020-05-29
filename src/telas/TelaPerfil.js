@@ -1,10 +1,5 @@
-import React, {useState} from 'react';
-import {SafeAreaView, ImageBackground, Button, View, Text, Image, TextInput} from 'react-native';
-
-import {NavigationContainer, StackActions} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import 'react-native-gesture-handler';
-
+import React from 'react';
+import {SafeAreaView, ImageBackground, View, Text, Image, TextInput} from 'react-native';
 import img from '../img/background_milhao.jpg';
 import Botao from'../components/Botao';
 import styles from'../styles/Styles';
@@ -27,8 +22,8 @@ export default function TelaPerfil ({navigation}) {
         </View>
   
         <View style={{flex: 1.6, alignItems: 'center', justifyContent: 'space-around'}}>
-            <Botao text = 'Trocar de nick' width= {190}/>
-            <Botao text = 'Voltar' onPress={()=>{navigation.navigate("HOMME")}} width= {190}/>
+            <Botao text = 'Trocar de nick' width= {190} height= {56}/>
+            <Botao text = 'Voltar' onPress={()=>{navigation.navigate("Inicial")}} width= {190} height= {56}/>
         </View>
           
       </ImageBackground>

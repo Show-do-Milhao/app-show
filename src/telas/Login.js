@@ -1,12 +1,23 @@
 import React from 'react';
-import { SafeAreaView, View, Text, Button, ImageBackground, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
-import image from '../img/background_milhao.jpg'
-import logo from '../img/icone_milhao.png'
-import Styles from '../styles/Styles'
-import Botao from '../components/Botao'
+import {SafeAreaView, View, Text, ImageBackground, Image, TouchableOpacity} from 'react-native';
+import image from '../img/background_milhao.jpg';
+import logo from '../img/icone_milhao.png';
+import Styles from '../styles/Styles';
+import Botao from '../components/Botao';
 import CaixaDeTexto from '../components/CaixaDeTexto';
 
-const Login = () => {
+
+export default function Login({navigation}) {
+    const acessatelaInicial = () => {
+        navigation.push('Inicial');
+    }
+    const acessaRegistrar = () => {
+        navigation.push('Registra');
+    }
+    const acessaRecuperSenha = () => {
+        navigation.push('Senha');
+    }
+        
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
@@ -18,18 +29,17 @@ const Login = () => {
                         <CaixaDeTexto placeholder='Email' />
                         <CaixaDeTexto placeholder='Senha' marginTop={20} />
                         <TouchableOpacity style={{ marginTop: 10 }}>
-                            <Text style={{ color: 'white' }}>Esqueceu a senha?</Text>
+                            <Text style={{ color: 'white' }} onPress={acessaRecuperSenha}>Esqueceu a senha?</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "space-evenly", flex: 1 }}>
-                        <Botao width={150} height={50} text='Login' />
-                        <Botao width={150} height={50} text='Registre-se' />
+                        <Botao width={190} height={50} text='Login' onPress= {acessatelaInicial}/>
+                        <Botao width={190} height={50} text='Registre-se' onPress={acessaRegistrar}/>
                     </View>
                 </ImageBackground>
             </View>
         </SafeAreaView>
 
     );
-};
+}
 
-export default Login;
