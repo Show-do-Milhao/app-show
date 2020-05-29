@@ -16,7 +16,8 @@ export default function Pergunta(props) {
                 backgroundColor: 'black',
                 alignItems: 'center',
                 justifyContent: 'center',
-                alignContent: 'center'
+                alignContent: 'center',
+                color: 'white'
             }}>
                 {props.text}
             </Text>
