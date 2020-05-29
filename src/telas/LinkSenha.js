@@ -1,12 +1,13 @@
 import React from 'react';
-import { SafeAreaView, View, Text, Button, ImageBackground, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
-import image from './src/img/background_milhao.jpg'
-import logo from './src/img/icone_milhao.png'
-import Styles from './src/styles/Styles'
-import Botao from './src/components/Botao'
+import { SafeAreaView, View, Text, ImageBackground, Image} from 'react-native';
+import image from '../img/background_milhao.jpg'
+import logo from '../img/icone_milhao.png'
+import Styles from '../styles/Styles'
+import Botao from '../components/Botao'
 
-const LinkSenha = () => {
-    return (
+export default function  LinkSenha({navigation}) {
+    
+        return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
                 <ImageBackground source={image} style={Styles.background}>
@@ -18,12 +19,11 @@ const LinkSenha = () => {
                         <Text style={{ fontSize: 30, color: 'white', alignItems: "center", textAlign: "center", ...Styles.textWithShadow }}>-------@gmail.com</Text>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "flex-start", flex: 1 }}>
-                        <Botao width={200} height={70} text='Continuar' />
+                        <Botao width={200} height={55} text='Continuar'/>
                     </View>
                 </ImageBackground>
             </View>
         </SafeAreaView>
     );
-};
+}
 
-export default LinkSenha;

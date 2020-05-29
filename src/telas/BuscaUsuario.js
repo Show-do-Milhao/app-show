@@ -1,12 +1,15 @@
 import React from 'react';
-import { SafeAreaView, View, Text, Button, ImageBackground, StyleSheet, Image, TextInput, TouchableOpacity } from 'react-native';
-import image from './src/img/background_milhao.jpg'
-import logo from './src/img/icone_milhao.png'
-import Styles from './src/styles/Styles'
-import Botao from './src/components/Botao'
-import CaixaDeTexto from './src/components/CaixaDeTexto';
+import {SafeAreaView, View, ImageBackground, Image, } from 'react-native';
+import image from '../img/background_milhao.jpg'
+import logo from '../img/icone_milhao.png'
+import Styles from '../styles/Styles'
+import Botao from '../components/Botao'
+import CaixaDeTexto from '../components/CaixaDeTexto';
 
-const BuscaUsuario = () => {
+export default function  BuscaUsuario({navigation}) {
+    const acessaLink = () => {
+        navigation.push('Senha');
+      }
     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
@@ -18,12 +21,11 @@ const BuscaUsuario = () => {
                        <CaixaDeTexto placeholder='Digite seu e-mail'></CaixaDeTexto>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "flex-start", flex: 1 }}>
-                        <Botao width={200} height={70} text='Continuar' />
+                        <Botao width={200} height={55} text='Continuar' onPress={acessaLink}/>
                     </View>
                 </ImageBackground>
             </View>
         </SafeAreaView>
     );
-};
+}
 
-export default BuscaUsuario;
