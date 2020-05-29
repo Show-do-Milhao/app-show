@@ -6,8 +6,11 @@ import Styles from '../styles/Styles'
 import Botao from '../components/Botao'
 
 export default function  LinkSenha({navigation}) {
+    const acessaDeVoltaLogin= () => {
+        navigation.push('Login');
+      }
     
-        return (
+return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
                 <ImageBackground source={image} style={Styles.background}>
@@ -19,7 +22,7 @@ export default function  LinkSenha({navigation}) {
                         <Text style={{ fontSize: 30, color: 'white', alignItems: "center", textAlign: "center", ...Styles.textWithShadow }}>-------@gmail.com</Text>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "flex-start", flex: 1 }}>
-                        <Botao width={200} height={55} text='Continuar'/>
+                        <Botao width={200} height={55} text='Continuar' onPress={acessaDeVoltaLogin}/>
                     </View>
                 </ImageBackground>
             </View>

@@ -15,6 +15,10 @@ export default function TelaInicial({navigation}) {
     const acessaLogin = () => {
       navigation.push('Login');
     }
+    const acessaRanking = () => {
+      navigation.push('SeuRanking');
+    }
+
 
   return(
   <SafeAreaView style={{flex:1}} >
@@ -26,7 +30,7 @@ export default function TelaInicial({navigation}) {
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
           <Botao text = 'Iniciar Jogo' width= {250} height= {55}/>
           <Botao text = 'Perfil' onPress = {acessaPerfil} width= {250} height= {55}/>
-          <Botao text = 'Records' width= {250} height= {55}/>
+          <Botao text = 'Ranking' width= {250} height= {55} onPress={acessaRanking}/>
       </View>
 
       <View style={{flex: 1.5, alignItems: 'center', justifyContent: 'space-around'}}>
