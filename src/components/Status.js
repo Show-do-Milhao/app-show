@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 
-export default function Pergunta(props) {
+export default function (props) {
     return (
         <View>
             <Text style={{
                 textAlign: 'center',
                 fontSize: 18,
-                height: 100,
-                width: 400,
+                height: 50,
+                width: 100,
                 borderColor: '#B88E44',
                 borderWidth: 1,
-                borderRadius: 30,
+                borderRadius: 10,
                 alignSelf: 'center',
-                backgroundColor: 'black',
+                backgroundColor: 'white',
                 alignItems: 'center',
                 justifyContent: 'center',
                 alignContent: 'center',
-                color: 'white'
             }}>
                 {props.text}
             </Text>
