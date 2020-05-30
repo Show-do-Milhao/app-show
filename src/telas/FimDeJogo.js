@@ -1,10 +1,10 @@
 
 import React from 'react';
 import {SafeAreaView, ImageBackground, View, Text, Image} from 'react-native';
-import img from './src/img/background_milhao.jpg';
-import Botao from'./src/components/Botao';
-import styles from'./src/styles/Styles';
-import ScoreFinal from './src/components/ScoreFinal';
+import img from '../img/background_milhao.jpg';
+import Botao from'../components/Botao';
+import styles from'../styles/Styles';
+import ScoreFinal from '../components/ScoreFinal';
 
 const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
 
@@ -44,7 +44,3 @@ export default function TelaInicial({navigation}) {
 
   );
 }
-
-
-
-

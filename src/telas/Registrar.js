@@ -38,10 +38,7 @@ class Registrar extends React.Component {
                             <CaixaDeTexto placeholder='Confirma senha' marginTop={20} />
                         </View>
                         <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-                            {console.log(this.state.nickname),
-                                console.log(this.state.email),
-                                console.log(this.state.password)}
-                            <Botao width={190} height={55} text='Registre-se'
+                            <Botao width={190} height={55} text='Registrar'
                                 onPress={() =>
                                     axios.post('http://10.0.2.2:3333/players', {
                                         nickname: this.state.nickname,
