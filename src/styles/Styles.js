@@ -3,15 +3,15 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: "column"
     },
     background: {
         flex: 1,
         resizeMode: 'cover', 
-        justifyContent: "center"
+        justifyContent: "center",
+        height:'100%'
     },
     logo: {
-        width: '100%',
+        width: '90%',
         resizeMode: 'contain',
     },
     foto: {
