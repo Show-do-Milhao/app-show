@@ -6,7 +6,7 @@ import styles from'../styles/Styles';
 
 const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
 
-export default function TelaPerfil ({navigation}) {
+export default function TelaPerfil ({route, navigation}) {
     
     return (
   
@@ -14,7 +14,7 @@ export default function TelaPerfil ({navigation}) {
       <ImageBackground source = {img} style={{flex:1}}>
         <View style={{flex: 2, alignItems: 'center', justifyContent: 'space-around'}}>
             <Image source={usuarios} style={styles.foto}></Image>
-            <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>INDIRA</Text>
+            <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>{route.params.nickname}</Text>
         </View>
         <View style={{flex:2.4, alignItems: 'center', justifyContent: 'space-around'}}>
            <TextInput

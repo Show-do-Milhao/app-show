@@ -8,15 +8,19 @@ import styles from'../styles/Styles';
 const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
 
 
-export default function TelaInicial({navigation}) {
+export default function TelaInicial({route, navigation}) {
     const acessaPerfil = () => {
-      navigation.push('Perfil');
+      navigation.push('Perfil', {
+        nickname: route.params.nickname
+      });
     }
     const acessaLogin = () => {
       navigation.push('Login');
     }
     const acessaRanking = () => {
-      navigation.push('SeuRanking');
+      navigation.push('SeuRanking',{
+        nickname: route.params.nickname
+      });
     }
     const acessaJogo = () => {
       navigation.push('VamosJogo');
@@ -28,7 +32,7 @@ export default function TelaInicial({navigation}) {
     <ImageBackground source = {img} style={{flex:1}}>
       <View style={{flex: 2.5, alignItems: 'center', justifyContent: 'space-around'}}>
         <Image source={usuarios} style={styles.foto}></Image>
-        <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>INDIRA</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>{route.params.nickname}</Text>
       </View>
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
           <Botao text = 'Iniciar Jogo' width= {250} height= {55} onPress={acessaJogo}/>
