@@ -23,20 +23,21 @@ class Registrar extends React.Component {
     }
     render() {
         return (
-            <KeyboardAvoidingView style={{flex:1}}>
-                <ImageBackground source={image} style={{flex:1}}>
-                    <View style={{flex:1}}>
-                        <View style={{ alignItems: "center", justifyContent: "center", flex: 1}}>
+            <SafeAreaView style={{ flex: 1 }}>
+                <View style={Styles.container}>
+                    <ImageBackground source={image} style={Styles.background}>
+                        <ScrollView>    
+                        <View style={{ alignItems: "center", justifyContent: "center", height:180}}>
                             <Image source={logo} style={Styles.logo} />
                         </View>
-                        <View style={{ alignItems: "center", justifyContent: "space-around", flex: 2 }}>
+                        <View style={{ alignItems: "center", justifyContent: "flex-end", flex: 3 }}>
                             <Text style={{ fontSize: 40, color: 'white', marginBottom: 20 }}>Crie sua conta</Text>
                             <CaixaDeTexto placeholder='Nickname' onChangeText={nickname => this.setState({ nickname: this.state.nickname = nickname })} />
                             <CaixaDeTexto placeholder='E-mail' marginTop={20} onChangeText={email => this.setState({ email: this.state.email = email })} />
                             <CaixaDeTexto placeholder='Senha' marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
                             <CaixaDeTexto placeholder='Confirma senha' marginTop={20} />
                         </View>
-                        <View style={{ alignItems: "center", justifyContent: "space-around", flex: 1}}>
+                        <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                             {console.log(this.state.nickname),
                                 console.log(this.state.email),
                                 console.log(this.state.password)}
@@ -56,15 +57,15 @@ class Registrar extends React.Component {
                                             console.log(error);
                                         })
 
-                        
+
                                     //this.props.navigation.navigate('SeRegistro')
                                 } />
                         </View>
-                    
-                    </View>
-                </ImageBackground>
-            </KeyboardAvoidingView>
-         
+                    </ScrollView>
+                    </ImageBackground>
+                </View>
+            </SafeAreaView>
+
         )
     }
 }
