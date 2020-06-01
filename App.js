@@ -1,50 +1,35 @@
-
 import React from 'react';
-import {SafeAreaView, ImageBackground, View, Text, Image} from 'react-native';
-import img from './src/img/background_milhao.jpg';
-import Botao from'./src/components/Botao';
-import styles from'./src/styles/Styles';
-import ScoreFinal from './src/components/ScoreFinal';
-
-const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
-
-
-export default function TelaInicial({navigation}) {
-    const acessaPerfil = () => {
-      navigation.push('Perfil');
-    }
-    const acessaLogin = () => {
-      navigation.push('Login');
-    }
-    const acessaRanking = () => {
-      navigation.push('SeuRanking');
-    }
-    const acessaJogo = () => {
-      navigation.push('VamosJogo');
-    }
-
-
-  return(
-  <SafeAreaView style={{flex:1}} >
-    <ImageBackground source = {img} style={{flex:1}}>
-      <View style={{flex: 2.5, alignItems: 'center', justifyContent: 'space-around'}}>
-      <ScoreFinal text = {`PARABÉNS! \nVOCÊ GANHOU 500 MIL REAIS`} />
-      </View>
-      <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
-          <Botao text = 'Compartilhar' width= {250} height= {55} onPress={acessaJogo}/>
-          <Botao text = 'Jogar novamente'  width= {250} height= {55} onPress = {acessaPerfil}/>
-          <Botao text = 'Ir para tela inicial' width= {250} height= {55} onPress={acessaRanking}/>
-      </View>
-
-      <View style={{flex: 1.5, alignItems: 'center', justifyContent: 'space-around'}}>
-          <Botao text = 'Sair' width= {190} height= {55} onPress = {acessaLogin}/>
-      </View>
-    </ImageBackground>
-  </SafeAreaView>
-
-  );
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import 'react-native-gesture-handler';
+import TelaInicial from './src/telas/TelaInicial';
+import TelaPerfil from './src/telas/TelaPerfil';
+import Login from './src/telas/Login';
+import BuscaUsuario from './src/telas/BuscaUsuario';
+import Registrar from './src/telas/Registrar';
+import Registrado from './src/telas/Registrado';
+import LinkSenha from './src/telas/LinkSenha';
+import Ranking from './src/telas/Ranking'
+import Jogo from './src/telas/Jogo';
+const Stack = createStackNavigator()
+function AppAsTelas() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen  name="Login" component={Login}  options={{ headerShown: false}}/>
+        <Stack.Screen  name="Inicial" component={TelaInicial} options={{ headerShown: false}}/>
+        <Stack.Screen  name="Perfil" component={TelaPerfil} options={{ headerShown: false}}/>
+        <Stack.Screen  name="Usuario" component={BuscaUsuario} options={{ headerShown: false}}/>
+        <Stack.Screen  name="Registra" component={Registrar} options={{ headerShown: false}}/>
+        <Stack.Screen  name="SeRegistro" component={Registrado} options={{ headerShown: false}}/>
+        <Stack.Screen  name="VoltaAoLogin" component={Login} options={{ headerShown: false}}/>
+        <Stack.Screen  name="Senha" component={LinkSenha} options={{ headerShown: false}}/>
+        <Stack.Screen  name="SeuRanking" component={Ranking} options={{ headerShown: false}}/>
+        <Stack.Screen  name="VoltaPerfil" component={TelaInicial} options={{ headerShown: false}}/>
+        <Stack.Screen  name="VoltaLogin" component={Login} options={{ headerShown: false}}/>
+        <Stack.Screen  name="VamosJogo" component={Jogo} options={{ headerShown: false}}/>
+      </Stack.Navigator>
+    </NavigationContainer>
+);
 }
-
-
-
-
+export default AppAsTelas;
