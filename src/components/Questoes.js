@@ -1,0 +1,178 @@
+exports.seed = function(knex) {
+    // Deletes ALL existing entries
+    return knex('questions').del()
+      .then(function () {
+        // Inserts seed entries
+        return knex('questions').insert([
+
+          {question: 'Normalmente, quantos litros de sangue uma pessoa tem? Em média, quantos são retirados numa doação de sangue?', 
+          answer_1:'Tem entre 2 a 4 litros. São retirados 450 mililitros', 
+          answer_2:'Tem entre 4 a 6 litros. São retirados 450 mililitros ', 
+          answer_3:'Uma Tem 10 litros. São retirados 2 litros', 
+          answer_4:'Um Tem 0,5 litros. São retirados 0,5 litros', 
+          answer_correct: 2},
+
+          {question: 'De quem é a famosa frase “Penso, logo existo”?', 
+          answer_1:'Platão', 
+          answer_2:'TGalileu Galilei', 
+          answer_3:'Descartes', 
+          answer_4:'Sócrates', 
+          answer_correct: 3},
+
+          {question: 'De onde é a invenção do chuveiro elétrico?', 
+          answer_1:'França', 
+          answer_2:'Inglaterra', 
+          answer_3:'Brasil', 
+          answer_4:'Austrália', 
+          answer_correct: 3},
+
+          {question: ' Quais o menor e o maior país do mundo?', 
+          answer_1:'Vaticano e Rússia', 
+          answer_2:'Nauru e China', 
+          answer_3:'Mônaco e Canadá', 
+          answer_4:'Malta e Estados Unidos', 
+          answer_correct: 1},
+
+          {question: 'Quais o menor e o maior país do mundo?', 
+          answer_1:'João Figueiredo', 
+          answer_2:'Getúlio Vargas', 
+          answer_3:'Jânio Quadros', 
+          answer_4:'João Goulart', 
+          answer_correct: 4},
+
+          {question: 'Qual o grupo em que todas as palavras foram escritas corretamente?', 
+          answer_1:'Asterístico, beneficiente, meteorologia, entertido', 
+          answer_2:'Asterisco, beneficente, meteorologia, entretido', 
+          answer_3:'Asterisco, beneficente, metereologia, entretido', 
+          answer_4:'Asterisco, beneficiente, metereologia, entretido', 
+          answer_correct: 2},
+
+          {question: 'Qual o livro mais vendido no mundo a seguir à Bíblia?', 
+          answer_1:'O Senhor dos Anéis', 
+          answer_2:'Dom Quixote', 
+          answer_3:'O Pequeno Príncipe', 
+          answer_4:'Ela, a Feiticeira', 
+          answer_correct: 2},
+
+          {question: 'Quantas casas decimais tem o número pi?', 
+          answer_1:'Duas', 
+          answer_2:'Centenas', 
+          answer_3:'Infinitas', 
+          answer_4:'Vinte', 
+          answer_correct: 3},
+
+          {question: 'Atualmente, quantos elementos químicos a tabela periódica possui?', 
+          answer_1:'113', 
+          answer_2:'109', 
+          answer_3:'108', 
+          answer_4:'118', 
+          answer_correct: 4},
+
+          {question: 'Quais os países que têm a maior e a menor expectativa de vida do mundo?', 
+          answer_1:'Japão e Serra Leoa', 
+          answer_2:'Austrália e Afeganistão', 
+          answer_3:'Itália e Chade', 
+          answer_4:'Brasil e Congo', 
+          answer_correct: 1},
+
+          {question: 'O que a palavra legend significa em português?', 
+          answer_1:'Legenda', 
+          answer_2:'Conto', 
+          answer_3:'Lenda', 
+          answer_4:'Legendário', 
+          answer_correct: 3},
+
+          {question: 'Qual o número mínimo de jogadores numa partida de futebol?', 
+          answer_1:'7', 
+          answer_2:'5', 
+          answer_3:'11', 
+          answer_4:'10', 
+          answer_correct: 1},
+
+          {question: 'Quais os principais autores do Barroco no Brasil?', 
+          answer_1:'Gregório de Matos, Bento Teixeira e Manuel Botelho de Oliveira', 
+          answer_2:'Miguel de Cervantes, Gregório de Matos e Danthe Alighieri', 
+          answer_3:'Padre Antônio Vieira, Padre Manuel de Melo e Gregório de Matos', 
+          answer_4:'Álvares de Azevedo, Gregório de Matos e Bento Teixeira', 
+          answer_correct: 1},
+
+          {question: 'Quais as duas datas que são comemoradas em novembro?', 
+          answer_1:'Independência do Brasil e Dia da Bandeira', 
+          answer_2:'Proclamação da República e Dia Nacional da Consciência Negra', 
+          answer_3:'Dia do Médico e Dia de São Lucas', 
+          answer_4:'Dia de Finados e Dia Nacional do Livro', 
+          answer_correct: 2},
+
+          {question: 'Quem pintou "Guernica"?', 
+          answer_1:'Paul Cézanne', 
+          answer_2:'Pablo Picasso', 
+          answer_3:'Diego Rivera', 
+          answer_4:'Tarsila do Amaral', 
+          answer_correct: 2},
+
+          {question: 'Quanto tempo a luz do Sol demora para chegar à Terra?', 
+          answer_1:'12 minutos', 
+          answer_2:'1 dia', 
+          answer_3:'12 horas', 
+          answer_4:'8 minutos', 
+          answer_correct: 4},
+
+          {question: 'Qual a tradução da frase “Fabiano cogió su saco antes de salir”?', 
+          answer_1:'Fabiano coseu seu paletó antes de sair', 
+          answer_2:'Fabiano fechou o saco antes de sair', 
+          answer_3:'Fabiano pegou seu paletó antes de sair', 
+          answer_4:'Fabiano rasgou seu paletó antes de cair', 
+          answer_correct: 3},
+
+          {question: 'Qual a nacionalidade de Che Guevara?', 
+          answer_1:'Cubana', 
+          answer_2:'Argentina', 
+          answer_3:'Peruana', 
+          answer_4:'Boliviana', 
+          answer_correct: 2},
+
+          {question: 'Quais são os três predadores do reino animal reconhecidos pela habilidade de caçar em grupo, se camuflar para surpreender as presas e possuir sentidos apurados, respectivamente:', 
+          answer_1:'2,43 m e 2,24 m', 
+          answer_2:'2,4 para ambos', 
+          answer_3:'1,8 m e 1,5 m', 
+          answer_4:'2,45 m e 2,15 m', 
+          answer_correct: 1},
+
+          {question: 'Em que ordem surgiram os modelos atômicos?', 
+          answer_1:'Dalton, Thomson, Rutherford, Rutherford-Bohr', 
+          answer_2:'Dalton, Rutherford-Bohr, Thomson, Rutherford', 
+          answer_3:'Dalton, Thomson, Rutherford-Bohr, Rutherford', 
+          answer_4:'Rutherford-Bohr, Rutherford, Thomson, Dalton', 
+          answer_correct: 1},
+
+          {question: 'Qual personagem folclórico costuma ser agradado pelos caçadores com a oferta de fumo?', 
+          answer_1:'Caipora', 
+          answer_2:'Saci', 
+          answer_3:'Lobisomem', 
+          answer_4:'Boitatá', 
+          answer_correct: 1},
+
+          {question: 'Em que período da pré-história o fogo foi descoberto?', 
+          answer_1:'Neolítico', 
+          answer_2:'Paleolítico', 
+          answer_3:'Idade Média', 
+          answer_4:'Idade dos Metais', 
+          answer_correct: 2},
+
+          {question: 'Qual das alternativas abaixo apenas contêm classes de palavras?', 
+          answer_1:'Vogais, semivogais e consoantes', 
+          answer_2:'Artigo, verbo transitivo e verbo intransitivo', 
+          answer_3:'Fonologia, Morfologia e Sintaxe', 
+          answer_4:'Substantivo, verbo e preposição', 
+          answer_correct: 4},
+
+          {question: 'Qual a montanha mais alta do Brasil?', 
+          answer_1:'Pico da Neblina', 
+          answer_2:'Pico Paraná', 
+          answer_3:'Pico Maior de Friburgo', 
+          answer_4:'Monte Roraima', 
+          answer_correct: 1},
+
+        ]);
+      });
+  };
