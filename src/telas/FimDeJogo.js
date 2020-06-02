@@ -27,17 +27,16 @@ export default function TelaInicial({navigation}) {
   return(
   <SafeAreaView style={{flex:1}} >
     <ImageBackground source = {img} style={{flex:1}}>
-      <View style={{flex: 2.5, alignItems: 'center', justifyContent: 'space-around'}}>
+      <View style={{flex: 2, alignItems: 'center', justifyContent: 'space-around'}}>
       <ScoreFinal text = {`PARABÉNS! \nVOCÊ GANHOU 500 MIL REAIS`} />
       </View>
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
-          <Botao text = 'Compartilhar' width= {250} height= {55} onPress={acessaJogo}/>
           <Botao text = 'Jogar novamente'  width= {250} height= {55} onPress = {acessaPerfil}/>
           <Botao text = 'Ir para tela inicial' width= {250} height= {55} onPress={acessaRanking}/>
       </View>
 
-      <View style={{flex: 1.5, alignItems: 'center', justifyContent: 'space-around'}}>
-          <Botao text = 'Sair' width= {190} height= {55} onPress = {acessaLogin}/>
+      <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
+          <Botao text = 'Sair' width= {180} height= {55} onPress = {acessaLogin}/>
       </View>
     </ImageBackground>
   </SafeAreaView>

@@ -7,7 +7,7 @@ import Botao from '../components/Botao'
 
 export default function Registrado ({navigation}) {
     const acessaVoltaLogin = () => {
-        navigation.push('VoltaAoLogin');
+        navigation.navigate('Login');
       }
 
     return (

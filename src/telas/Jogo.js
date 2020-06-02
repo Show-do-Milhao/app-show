@@ -77,10 +77,12 @@ class Jogo extends React.Component {
 
     componentDidMount = () => {
         this.PegaPergunta()
+        this.setState({nickname: this.state.nickname = this.props.route.params.nickname})
     }
 
     render() {
         return (
+            
             <SafeAreaView style={{ flex: 1 }} >
                 <ImageBackground source={img} style={{ flex: 1 }}>
                     <View style={{ flex: 2, alignItems: 'center', justifyContent: 'space-around' }}>
@@ -98,7 +100,7 @@ class Jogo extends React.Component {
                             } else {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
-                                    this.props.navigation.navigate('SeRegistro')
+                                    this.props.navigation.navigate('ParaFimDoJogo')
                                 } else {
                                     this.setState({ backgroundColor1: this.state.backgroundColor1 = 'red' })
                                     this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1500);
@@ -115,10 +117,15 @@ class Jogo extends React.Component {
                                     this.PegaPergunta()
                                 this.Acertou()
                             } else {
-                                this.setState({ backgroundColor2: this.state.backgroundColor2 = 'red' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor2: this.state.backgroundColor2 = 'white' }), 1500);
-                                this.setState({ id: this.state.id + 1 }),
+                                this.Errou()
+                                if (this.state.vidas <= 0) {
+                                    this.props.navigation.navigate('ParaFimDoJogo')
+                                } else {
+                                    this.setState({ backgroundColor2: this.state.backgroundColor2 = 'red' })
+                                    this.cor = setInterval(() => this.setState({ backgroundColor2: this.state.backgroundColor2 = 'white' }), 1500);
+                                    this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
+                                }
                             }
                         }} />
                         <Alternativas textnumber='3' backgroundColor={this.state.backgroundColor3} text={this.state.resposta_3} onPress={() => {
@@ -129,10 +136,15 @@ class Jogo extends React.Component {
                                     this.PegaPergunta()
                                 this.Acertou()
                             } else {
-                                this.setState({ backgroundColor3: this.state.backgroundColor3 = 'red' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor3: this.state.backgroundColor3 = 'white' }), 1500);
-                                this.setState({ id: this.state.id + 1 }),
+                                this.Errou()
+                                if (this.state.vidas < 0) {
+                                    this.props.navigation.navigate('ParaFimDoJogo')
+                                } else {
+                                    this.setState({ backgroundColor3: this.state.backgroundColor3 = 'red' })
+                                    this.cor = setInterval(() => this.setState({ backgroundColor3: this.state.backgroundColor3 = 'white' }), 1500);
+                                    this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
+                                }
                             }
                         }} />
                         <Alternativas textnumber='4' backgroundColor={this.state.backgroundColor4} text={this.state.resposta_4} onPress={() => {
@@ -143,10 +155,15 @@ class Jogo extends React.Component {
                                     this.PegaPergunta()
                                 this.Acertou()
                             } else {
-                                this.setState({ backgroundColor4: this.state.backgroundColor4 = 'red' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor4: this.state.backgroundColor4 = 'white' }), 1500);
-                                this.setState({ id: this.state.id + 1 }),
+                                this.Errou()
+                                if (this.state.vidas <= 0) {
+                                    this.props.navigation.navigate('ParaFimDoJogo')
+                                } else {
+                                    this.setState({ backgroundColor4: this.state.backgroundColor4 = 'red' })
+                                    this.cor = setInterval(() => this.setState({ backgroundColor4: this.state.backgroundColor4 = 'white' }), 1500);
+                                    this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
+                                }
                             }
                         }} />
                     </View>
@@ -157,7 +174,7 @@ class Jogo extends React.Component {
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
                         <Botao text='Parar' width={140} height={40} />
-                        <Botao text={'Pulos ' + this.state.pulos + '/3'} width={140} disabled={this.state.disabled} height={40} style={{ marginLeft: 100 }} onPress={() => {
+                        <Botao text={'Pulos ' + this.state.pulos + '/3' + this.state.nickname} width={140} disabled={this.state.disabled} height={40} style={{ marginLeft: 100 }} onPress={() => {
                             if (this.state.pulos > 0) {
                                 this.setState({ id: this.state.id + 1 }),
                                     this.PegaPergunta(),
@@ -174,5 +191,6 @@ class Jogo extends React.Component {
     }
 }
 export default Jogo;
+
 
 

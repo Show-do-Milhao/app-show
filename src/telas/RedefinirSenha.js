@@ -4,13 +4,18 @@ import image from '../img/background_milhao.jpg'
 import logo from '../img/icone_milhao.png'
 import Styles from '../styles/Styles'
 import Botao from '../components/Botao'
-import CaixaDeTexto from '../components/CaixaDeTexto';
+import CaixaDeSenha from '../components/CaixaDeSenha';
 
-export default function  RedefinirSenha({navigation}) {
-    const acessaLink = () => {
-        navigation.navigate('Senha');
-      }
-    return (
+class RedefinirSenha extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            email: '',
+            password: '',
+        }
+    }
+    render() {
+     return (
         <SafeAreaView style={{ flex: 1 }}>
             <View style={Styles.container}>
                 <ImageBackground source={image} style={Styles.background}>
@@ -18,14 +23,16 @@ export default function  RedefinirSenha({navigation}) {
                         <Image source={logo} style={Styles.logo} />
                     </View>
                     <View style={{ justifyContent: "space-around", flex: 1 }}>
-                       <CaixaDeTexto placeholder='Digite a nova senha'></CaixaDeTexto>
-                       <CaixaDeTexto placeholder='Confirme a nova senha'></CaixaDeTexto>
+                       <CaixaDeSenha placeholder='Digite a nova senha'/>
+                       <CaixaDeSenha placeholder='Confirme a nova senha'/>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "space-around", flex: 1 }}>
-                        <Botao width={200} height={55} text='Redefinir' onPress={acessaLink}/>
+                        <Botao width={200} height={55} text='Redefinir' onPress={() => this.props.navigation.navigate('Login')}/>
                     </View>
                 </ImageBackground>
             </View>
         </SafeAreaView>
     );
+ }
 }
+export default RedefinirSenha;

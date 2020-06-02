@@ -9,19 +9,6 @@ import CaixaDeSenha from '../components/CaixaDeSenha';
 import axios from 'axios';
 
 
-// function Login({ navigation }) {
-//     const acessatelaInicial = () => {
-//         navigation.push('Inicial');
-//     }
-//     const acessaRegistrar = () => {
-//         navigation.push('Registra');
-//     }
-//const acessaRecuperSenha = () => {
-     // navigation.navigate('BuscaUsuario');
-   //}
-// }
-
-
 class Login extends React.Component {
     constructor() {
         super();
@@ -43,7 +30,7 @@ class Login extends React.Component {
                         <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                             <CaixaDeTexto placeholder='Email' onChangeText={email => this.setState({ email: this.state.email = email })} />
                             <CaixaDeSenha placeholder='Senha' secureTextEntry={true} marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
-                            <TouchableOpacity style={{ marginTop: 10 }} onPress={() => this.props.navigation.navigate('Senha')}>
+                            <TouchableOpacity style={{ marginTop: 10 }} onPress={() => this.props.navigation.navigate('BuscaUsuario')}>
                                 <Text style={{ color: 'white' }} >Esqueceu a senha?</Text>
                             </TouchableOpacity>
                         </View>
@@ -72,31 +59,21 @@ class Login extends React.Component {
                                                     nickname: this.state.nickname,
                                                     score: this.state.score
                                                 })
-
                                             } else {
                                                 Alert.alert("Erro!", 'Email ou senha incorretos')
                                             }
                                         })
-
                                 } else {
                                     Alert.alert("Erro!", 'Preencha todos os campos')
                                 }
                             }} />
-
-
-
-
-
-
                             <Botao width={190} height={50} text='Registre-se' onPress={() => this.props.navigation.navigate('Registra')} />
                         </View>
                     </ImageBackground>
                 </View>
             </SafeAreaView>
-
         );
     }
 }
-
 export default Login;
 
