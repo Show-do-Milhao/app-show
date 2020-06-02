@@ -1,48 +1,15 @@
 import React from 'react';
-import { SafeAreaView, ImageBackground, View, } from 'react-native';
-import 'react-native-gesture-handler';
-import img from '../img/background_milhao.jpg';
+import { SafeAreaView, View, Text, ImageBackground, Image, TouchableOpacity, Alert } from 'react-native';
+import image from '../img/background_milhao.jpg';
+import logo from '../img/icone_milhao.png';
+import Styles from '../styles/Styles';
 import Botao from '../components/Botao';
-import Pergunta from '../components/Pergunta';
-import Alternativas from '../components/Alternativas';
-import Status from '../components/Status';
+import CaixaDeTexto from '../components/Alternativas';
+import Alternativas from '../components/CaixaDeSenha';
 import axios from 'axios';
+import Pergunta from '../components/Pergunta'
+import Status from '../components/Status'
 
-<<<<<<< HEAD
-export default function Jogo({ navigation }) {
-    const acessaFimJogo = () => {
-        navigation.navigate('ParaFimDoJogo');
-      }
-
-    return (
-        <SafeAreaView style={{ flex: 1 }} >
-            <ImageBackground source={img} style={{ flex: 1 }}>
-                <View style={{ flex: 2, alignItems: 'center', justifyContent: 'space-around' }}>
-                    <Pergunta text='O QUE É A VIA LÁCTEA? ' />
-                </View>
-                <View style={{ flex: 3, alignItems: 'center', }}>
-                    <Alternativas textnumber='1' text='Marca de Leite' />
-                    <Alternativas textnumber='2' text='Civilização Antiga' />
-                    <Alternativas textnumber='3' text='Carro' />
-                    <Alternativas textnumber='4' text='Galaxia' />
-                </View>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft : 20, marginRight : 20}}>
-                    <Status text={`Errar \n-500`}/>
-                    <Status text={`Score \n500`}/>
-                    <Status text={`Acertar \n1000`}/>
-
-                </View>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
-                    <Botao text='Parar' width={140} height={40} onPress={acessaFimJogo}/>
-                    <Botao text='Pular 1/3' width={140} height={40} style={{ marginLeft: 100 }} />
-
-                </View>
-            </ImageBackground>
-        </SafeAreaView>
-
-    );
-}
-=======
 class Jogo extends React.Component {
     constructor() {
         super();
@@ -80,7 +47,7 @@ class Jogo extends React.Component {
                 const resposta_1 = res.data.map(answer_1 => answer_1.answer_1)
                 this.setState({ resposta_1 })
                 console.log(this.state.resposta_1)
->>>>>>> 04c612ccce3f89bbcd06a3b6e5bbf5beccb1d3c5
+
 
                 const resposta_2 = res.data.map(answer_2 => answer_2.answer_2)
                 this.setState({ resposta_2 })
@@ -110,7 +77,7 @@ class Jogo extends React.Component {
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }} >
-                <ImageBackground source={img} style={{ flex: 1 }}>
+                <ImageBackground source={image} style={{ flex: 1 }}>
                     <View style={{ flex: 2, alignItems: 'center', justifyContent: 'space-around' }}>
                         <Pergunta text={this.state.perguntas} />
                     </View>

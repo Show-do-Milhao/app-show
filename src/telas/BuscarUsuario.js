@@ -35,21 +35,18 @@ class BuscarUsuario extends React.Component {
                                     })
                                         .then(res => {
                                             console.log(res)
-                                            const nickname = res.data.map(nickname => nickname.nickname)
-                                            this.setState({ nickname })
-                                            console.log(this.state.nickname)
-                                            const score = res.data.map(score => score.score)
-                                            this.setState({ score })
-                                            console.log(this.state.score)
+                                            const email = res.data.map(email => email.email)
+                                            this.setState({ email })
+                                            
                                         })
                                         .catch(function (error) {
                                             console.log(error);
                                         })
                                         .finally(() => {
-                                            if (this.state.nickname != '') {
+                                            if (this.state.email === data.email) {
                                                 this.props.navigation.navigate('RedefinirSenha', {
-                                                    nickname: this.state.nickname,
-                                                    score: this.state.score
+                                                    email: this.state.email,
+                                                   // score: this.state.score
                                                 })
                                             } else {
                                                 Alert.alert("Erro!", 'Email incorreto')
