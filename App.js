@@ -11,6 +11,7 @@ import Registrado from './src/telas/Registrado';
 import RedefinirSenha from './src/telas/RedefinirSenha';
 import Ranking from './src/telas/Ranking'
 import Jogo from './src/telas/Jogo';
+import FimDeJogo from './src/telas/FimDeJogo';
 
 const Stack = createStackNavigator()
 
@@ -27,8 +28,8 @@ function AppAsTelas() {
         <Stack.Screen  name="VoltaAoLogin" component={Login} options={{ headerShown: false}}/>
         <Stack.Screen  name="RedefinirSenha" component={RedefinirSenha} options={{ headerShown: false}}/>
         <Stack.Screen  name="SeuRanking" component={Ranking} options={{ headerShown: false}}/>
-        <Stack.Screen  name="VoltaLogin" component={Login} options={{ headerShown: false}}/>
         <Stack.Screen  name="VamosJogo" component={Jogo} options={{ headerShown: false}}/>
+        <Stack.Screen  name='ParaFimDoJogo' component={FimDeJogo} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
 );

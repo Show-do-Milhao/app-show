@@ -11,6 +11,9 @@ import Alternativas from '../components/Alternativas';
 import Status from '../components/Status';
 
 export default function Jogo({ navigation }) {
+    const acessaFimJogo = () => {
+        navigation.navigate('ParaFimDoJogo');
+      }
 
     return (
         <SafeAreaView style={{ flex: 1 }} >
@@ -31,7 +34,7 @@ export default function Jogo({ navigation }) {
 
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
-                    <Botao text='Parar' width={140} height={40} />
+                    <Botao text='Parar' width={140} height={40} onPress={acessaFimJogo}/>
                     <Botao text='Pular 1/3' width={140} height={40} style={{ marginLeft: 100 }} />
 
                 </View>
@@ -40,6 +43,7 @@ export default function Jogo({ navigation }) {
 
     );
 }
+
 
 
 

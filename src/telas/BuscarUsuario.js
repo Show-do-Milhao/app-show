@@ -12,9 +12,8 @@ class BuscarUsuario extends React.Component {
         super();
         this.state = {
             email: '',
-            password: '',
             nickname: '',
-            score: ''
+            score: ''   
         }
     }
     render() {
@@ -29,7 +28,37 @@ class BuscarUsuario extends React.Component {
                             <CaixaDeTexto placeholder='Digite seu Email' onChangeText={email => this.setState({ email: this.state.email = email })} />
                         </View>
                         <View style={{ alignItems: "center", flex: 1 }}>
-                            <Botao width={190} height={50} text='Buscar' onPress={() => this.props.navigation.navigate('RedefinirSenha')}/>
+                            <Botao width={190} height={50} text='Buscar' onPress={() => {
+                                if (this.state.email != '') {
+                                    axios.post('https://show-do-milhao-app.herokuapp.com/logon', {
+                                        email: this.state.email,
+                                    })
+                                        .then(res => {
+                                            console.log(res)
+                                            const nickname = res.data.map(nickname => nickname.nickname)
+                                            this.setState({ nickname })
+                                            console.log(this.state.nickname)
+                                            const score = res.data.map(score => score.score)
+                                            this.setState({ score })
+                                            console.log(this.state.score)
+                                        })
+                                        .catch(function (error) {
+                                            console.log(error);
+                                        })
+                                        .finally(() => {
+                                            if (this.state.nickname != '') {
+                                                this.props.navigation.navigate('RedefinirSenha', {
+                                                    nickname: this.state.nickname,
+                                                    score: this.state.score
+                                                })
+                                            } else {
+                                                Alert.alert("Erro!", 'Email incorreto')
+                                            }
+                                        })
+                                } else {
+                                    Alert.alert("Erro!", 'Preencha todos os campos')
+                                }
+                            }} />
                         </View>
                     </ImageBackground>
                 </View>
