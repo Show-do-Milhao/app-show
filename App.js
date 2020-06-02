@@ -25,7 +25,6 @@ function AppAsTelas() {
         <Stack.Screen  name="VoltaAoLogin" component={Login} options={{ headerShown: false}}/>
         <Stack.Screen  name="Senha" component={LinkSenha} options={{ headerShown: false}}/>
         <Stack.Screen  name="SeuRanking" component={Ranking} options={{ headerShown: false}}/>
-        
         <Stack.Screen  name="VoltaLogin" component={Login} options={{ headerShown: false}}/>
         <Stack.Screen  name="VamosJogo" component={Jogo} options={{ headerShown: false}}/>
       </Stack.Navigator>

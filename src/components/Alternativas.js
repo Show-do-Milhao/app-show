@@ -14,7 +14,7 @@ export default function Alternativas(props) {
                 borderRadius: 10,
                 borderWidth: 2,
                 flexDirection: 'row',
-                backgroundColor: 'white'
+                backgroundColor: props.backgroundColor
 
             }}>
             <Text style={{
