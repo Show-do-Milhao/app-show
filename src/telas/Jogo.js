@@ -8,7 +8,7 @@ import Alternativas from '../components/Alternativas';
 import Status from '../components/Status';
 import axios from 'axios';
 
-{var nomeDoPlayer}
+{ var nomeDoPlayer }
 
 class Jogo extends React.Component {
     constructor() {
@@ -17,7 +17,7 @@ class Jogo extends React.Component {
             nickname: '',
             score: 0,
             acertou: 10000,
-            vidas: 10,
+            vidas: 3,
             pulos: 3,
             id: 1,
             pergunta: '',
@@ -33,7 +33,7 @@ class Jogo extends React.Component {
             disabled: 'false'
         }
     }
-    
+
     PegaPergunta = () => {
         axios.post('https://show-do-milhao-app.herokuapp.com/questions', {
             id: this.state.id,
@@ -81,13 +81,14 @@ class Jogo extends React.Component {
             score: this.state.score,
             nickname: this.state.nickname[0],
         })
-        this.props.navigation.navigate('ParaFimDoJogo',{
+        this.props.navigation.navigate('ParaFimDoJogo', {
             score: this.state.score
         })
     }
     componentDidMount = () => {
         this.PegaPergunta()
         this.setState({ nickname: this.state.nickname = this.props.route.params.nickname })
+
     }
 
     render() {
@@ -99,23 +100,23 @@ class Jogo extends React.Component {
                     </View>
                     <View style={{ flex: 3, alignItems: 'center', }}>
                         <Alternativas textnumber='1' backgroundColor={this.state.backgroundColor1} text={this.state.resposta_1} onPress={() => {
-                            if (this.state.resposta_correta == 1) {
-                                this.setState({ backgroundColor1: this.state.backgroundColor1 = 'green' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1500);
-                                this.setState({ id: this.state.id + 1 })
-                                this.PegaPergunta()
-                                this.Acertou()
-                            } else {
-                                this.Errou()
-                                if (this.state.vidas <= 0) {
-                                    this.SalvaDados()
-                                } else {
-                                    this.setState({ backgroundColor1: this.state.backgroundColor1 = 'red' })
+                                if (this.state.resposta_correta == 1) {
+                                    this.setState({ backgroundColor1: this.state.backgroundColor1 = 'green' })
                                     this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1500);
                                     this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
+                                    this.Acertou()
+                                } else {
+                                    this.Errou()
+                                    if (this.state.vidas <= 0) {
+                                        this.SalvaDados()
+                                    } else {
+                                        this.setState({ backgroundColor1: this.state.backgroundColor1 = 'red' })
+                                        this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1500);
+                                        this.setState({ id: this.state.id + 1 })
+                                        this.PegaPergunta()
+                                    }
                                 }
-                            }
                         }} />
                         <Alternativas textnumber='2' backgroundColor={this.state.backgroundColor2} text={this.state.resposta_2} onPress={() => {
                             if (this.state.resposta_correta == 2) {
@@ -181,7 +182,7 @@ class Jogo extends React.Component {
                         <Status text={`Acertar \n` + this.state.acertou} borderColor='green' />
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
-                        <Botao text='Parar' width={140} height={40} onPress={()=>this.props.navigation.navigate('Login')}/>
+                        <Botao text='Parar' width={140} height={40} onPress={() => this.props.navigation.navigate('Inicial')} />
                         <Botao text={'Pulos ' + this.state.pulos + '/3'} width={140} disabled={this.state.disabled} height={40} style={{ marginLeft: 100 }} onPress={() => {
                             if (this.state.pulos > 0) {
                                 this.setState({ id: this.state.id + 1 }),
@@ -201,5 +202,5 @@ class Jogo extends React.Component {
 export default Jogo;
 
 
-   
+
 
