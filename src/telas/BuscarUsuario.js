@@ -53,6 +53,7 @@ class BuscarUsuario extends React.Component {
                                     Alert.alert("Erro!", 'Preencha todos os campos')
                                 }
                             }} />
+                           
                         </View>
                     </ImageBackground>
                 </View>
