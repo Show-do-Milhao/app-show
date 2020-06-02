@@ -5,6 +5,7 @@ import logo from '../img/icone_milhao.png';
 import Styles from '../styles/Styles';
 import Botao from '../components/Botao';
 import CaixaDeTexto from '../components/CaixaDeTexto';
+import CaixaDeSenha from '../components/CaixaDeSenha';
 import axios from 'axios';
 
 
@@ -41,7 +42,7 @@ class Login extends React.Component {
                         </View>
                         <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                             <CaixaDeTexto placeholder='Email' onChangeText={email => this.setState({ email: this.state.email = email })} />
-                            <CaixaDeTexto placeholder='Senha' marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
+                            <CaixaDeSenha placeholder='Senha' secureTextEntry={true} marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
                             <TouchableOpacity style={{ marginTop: 10 }} onPress={() => this.props.navigation.navigate('Senha')}>
                                 <Text style={{ color: 'white' }} >Esqueceu a senha?</Text>
                             </TouchableOpacity>
@@ -67,7 +68,7 @@ class Login extends React.Component {
                                         })
                                         .finally(() => {
                                             if (this.state.nickname != '') {
-                                                this.props.navigation.navigate('Inicial',{
+                                                this.props.navigation.navigate('Inicial', {
                                                     nickname: this.state.nickname,
                                                     score: this.state.score
                                                 })
