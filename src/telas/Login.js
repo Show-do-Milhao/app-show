@@ -15,9 +15,9 @@ import axios from 'axios';
 //     const acessaRegistrar = () => {
 //         navigation.push('Registra');
 //     }
-//     const acessaRecuperSenha = () => {
-//         navigation.push('Senha');
-//     }
+//const acessaRecuperSenha = () => {
+     // navigation.navigate('BuscaUsuario');
+   //}
 // }
 
 
@@ -42,7 +42,7 @@ class Login extends React.Component {
                         <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                             <CaixaDeTexto placeholder='Email' onChangeText={email => this.setState({ email: this.state.email = email })} />
                             <CaixaDeTexto placeholder='Senha' marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
-                            <TouchableOpacity style={{ marginTop: 10 }} onPress={() => this.props.navigation.navigate('Senha')}>
+                            <TouchableOpacity style={{ marginTop: 10 }} onPress={() => this.props.navigation.navigate('BuscaUsuario')}>
                                 <Text style={{ color: 'white' }} >Esqueceu a senha?</Text>
                             </TouchableOpacity>
                         </View>

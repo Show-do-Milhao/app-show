@@ -10,12 +10,12 @@ const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-
 
 export default function TelaInicial({route, navigation}) {
     const acessaPerfil = () => {
-      navigation.push('Perfil', {
+      navigation.navigate('Perfil', {
         nickname: route.params.nickname
       });
     }
     const acessaLogin = () => {
-      navigation.push('Login');
+      navigation.navigate('Login');
     }
     const acessaRanking = () => {
       navigation.navigate('SeuRanking',{
