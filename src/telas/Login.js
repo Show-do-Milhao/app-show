@@ -42,13 +42,8 @@ class Login extends React.Component {
                         </View>
                         <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                             <CaixaDeTexto placeholder='Email' onChangeText={email => this.setState({ email: this.state.email = email })} />
-<<<<<<< HEAD
-                            <CaixaDeTexto placeholder='Senha' marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
-                            <TouchableOpacity style={{ marginTop: 10 }} onPress={() => this.props.navigation.navigate('BuscaUsuario')}>
-=======
                             <CaixaDeSenha placeholder='Senha' secureTextEntry={true} marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
                             <TouchableOpacity style={{ marginTop: 10 }} onPress={() => this.props.navigation.navigate('Senha')}>
->>>>>>> 88fb21804eaa75c41abc4fc2c2f73c10b058d25a
                                 <Text style={{ color: 'white' }} >Esqueceu a senha?</Text>
                             </TouchableOpacity>
                         </View>
