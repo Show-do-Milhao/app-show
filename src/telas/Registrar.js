@@ -4,6 +4,7 @@ import image from '../img/background_milhao.jpg'
 import logo from '../img/icone_milhao.png'
 import Styles from '../styles/Styles'
 import Botao from '../components/Botao'
+import CaixaDeSenha from '../components/CaixaDeSenha';
 import CaixaDeTexto from '../components/CaixaDeTexto';
 import axios from 'axios';
 
@@ -35,8 +36,8 @@ class Registrar extends React.Component {
                                 <Text style={{ fontSize: 40, color: 'white', marginBottom: 20 }}>Crie sua conta</Text>
                                 <CaixaDeTexto placeholder='Nickname' onChangeText={nickname => this.setState({ nickname: this.state.nickname = nickname })} />
                                 <CaixaDeTexto placeholder='E-mail' marginTop={20} onChangeText={email => this.setState({ email: this.state.email = email })} />
-                                <CaixaDeTexto placeholder='Senha' marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
-                                <CaixaDeTexto placeholder='Confirma senha' marginTop={20} onChangeText={pass_confirmation => this.setState({ pass_confirmation: this.state.pass_confirmation = pass_confirmation })}/>
+                                <CaixaDeSenha placeholder='Senha' marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
+                                <CaixaDeSenha placeholder='Confirma senha' marginTop={20} onChangeText={pass_confirmation => this.setState({ pass_confirmation: this.state.pass_confirmation = pass_confirmation })}/>
                             </View>
                             <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                                 <Botao width={190} height={55} text='Registre-se'
