@@ -25,11 +25,10 @@ function AppAsTelas() {
         <Stack.Screen  name="BuscaUsuario" component={BuscarUsuario} options={{ headerShown: false}}/>
         <Stack.Screen  name="Registra" component={Registrar} options={{ headerShown: false}}/>
         <Stack.Screen  name="SeRegistro" component={Registrado} options={{ headerShown: false}}/>
-        <Stack.Screen  name="VoltaAoLogin" component={Login} options={{ headerShown: false}}/>
         <Stack.Screen  name="RedefinirSenha" component={RedefinirSenha} options={{ headerShown: false}}/>
         <Stack.Screen  name="SeuRanking" component={Ranking} options={{ headerShown: false}}/>
         <Stack.Screen  name="VamosJogo" component={Jogo} options={{ headerShown: false}}/>
-        <Stack.Screen  name='ParaFimDoJogo' component={FimDeJogo} options={{ headerShown: false}}/>
+        <Stack.Screen  name='FimDoJogo' component={FimDeJogo} options={{ headerShown: false}}/>
       </Stack.Navigator>
     </NavigationContainer>
 );

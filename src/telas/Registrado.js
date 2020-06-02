@@ -6,9 +6,6 @@ import Styles from '../styles/Styles'
 import Botao from '../components/Botao'
 
 export default function Registrado ({navigation}) {
-    const acessaVoltaLogin = () => {
-        navigation.navigate('Login');
-      }
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
@@ -23,7 +20,7 @@ export default function Registrado ({navigation}) {
                         </Text>
                     </View>
                     <View style={{ alignItems: "center", justifyContent: "flex-start", flex: 1 }}>
-                        <Botao width={200} height={55} text='Voltar' onPress={acessaVoltaLogin} />
+                        <Botao width={200} height={55} text='Voltar' onPress={() => {navigation.navigate('Login')}}/>
                     </View>
                 </ImageBackground>
             </View>

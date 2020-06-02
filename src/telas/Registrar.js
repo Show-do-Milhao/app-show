@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text, ImageBackground, Image, KeyboardAvoidingView, ScrollView, Alert } from 'react-native';
+import { SafeAreaView, View, Text, ImageBackground, Image, ScrollView, Alert } from 'react-native';
 import image from '../img/background_milhao.jpg'
 import logo from '../img/icone_milhao.png'
 import Styles from '../styles/Styles'
@@ -8,10 +8,6 @@ import CaixaDeSenha from '../components/CaixaDeSenha';
 import CaixaDeTexto from '../components/CaixaDeTexto';
 import axios from 'axios';
 
-
-// const acessaSeRegistro = () => {
-//     this.props.navigation.navigate('SeRegistro');
-// }
 
 class Registrar extends React.Component {
     constructor() {

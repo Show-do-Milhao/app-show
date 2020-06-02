@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, ImageBackground, View, } from 'react-native';
+import {SafeAreaView, ImageBackground, View,} from 'react-native';
 import 'react-native-gesture-handler';
 import img from '../img/background_milhao.jpg';
 import Botao from '../components/Botao';
@@ -181,7 +181,7 @@ class Jogo extends React.Component {
                         <Status text={`Acertar \n` + this.state.acertou} borderColor='green' />
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
-                        <Botao text='Parar' width={140} height={40} onPress={()=>this.props.navigation.navigate('Login')}/>
+                        <Botao text='Parar' width={140} height={40} onPress={()=>this.props.navigation.navigate('FimDoJogo')}/>
                         <Botao text={'Pulos ' + this.state.pulos + '/3'} width={140} disabled={this.state.disabled} height={40} style={{ marginLeft: 100 }} onPress={() => {
                             if (this.state.pulos > 0) {
                                 this.setState({ id: this.state.id + 1 }),
