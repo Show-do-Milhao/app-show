@@ -23,7 +23,9 @@ export default function TelaInicial({route, navigation}) {
       });
     }
     const acessaJogo = () => {
-      navigation.navigate('VamosJogo');
+      navigation.navigate('VamosJogo', {
+        nickname: route.params.nickname
+      });
     }
 
 

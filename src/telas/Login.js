@@ -16,7 +16,7 @@ class Login extends React.Component {
             email: '',
             password: '',
             nickname: '',
-            score: ''
+            score: 0
         }
     }
     render() {

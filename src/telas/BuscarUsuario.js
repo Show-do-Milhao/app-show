@@ -11,9 +11,7 @@ class BuscarUsuario extends React.Component {
     constructor() {
         super();
         this.state = {
-            email: '',
-            nickname: '',
-            score: ''   
+            email: '',  
         }
     }
     render() {
@@ -30,23 +28,22 @@ class BuscarUsuario extends React.Component {
                         <View style={{ alignItems: "center", flex: 1 }}>
                             <Botao width={190} height={50} text='Buscar' onPress={() => {
                                 if (this.state.email != '') {
-                                    axios.post('https://show-do-milhao-app.herokuapp.com/logon', {
+                                    axios.post('https://show-do-milhao-app.herokuapp.com/validaEmail', {
                                         email: this.state.email,
                                     })
                                         .then(res => {
                                             console.log(res)
-                                            const email = res.data.map(email => email.email)
+                                            const email = res.data.map(nicemailkname => email.email)
                                             this.setState({ email })
-                                            
+                                            console.log(this.state.email)
                                         })
                                         .catch(function (error) {
                                             console.log(error);
                                         })
                                         .finally(() => {
-                                            if (this.state.email === data.email) {
+                                            if (this.state.email != '') {
                                                 this.props.navigation.navigate('RedefinirSenha', {
                                                     email: this.state.email,
-                                                   // score: this.state.score
                                                 })
                                             } else {
                                                 Alert.alert("Erro!", 'Email incorreto')
