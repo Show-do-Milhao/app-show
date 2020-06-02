@@ -9,18 +9,18 @@ import ScoreFinal from '../components/ScoreFinal';
 const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
 
 
-export default function TelaInicial({navigation}) {
+export default function TelaInicial({route, navigation}) {
     const acessaPerfil = () => {
-      navigation.push('Perfil');
+      navigation.navigate('Perfil');
     }
     const acessaLogin = () => {
-      navigation.push('Login');
+      navigation.navigate('Login');
     }
-    const acessaRanking = () => {
-      navigation.push('SeuRanking');
+    const TelaInicial = () => {
+      navigation.navigate('Inicial');
     }
     const acessaJogo = () => {
-      navigation.push('VamosJogo');
+      navigation.navigate('VamosJogo');
     }
 
 
@@ -28,11 +28,11 @@ export default function TelaInicial({navigation}) {
   <SafeAreaView style={{flex:1}} >
     <ImageBackground source = {img} style={{flex:1}}>
       <View style={{flex: 2, alignItems: 'center', justifyContent: 'space-around'}}>
-      <ScoreFinal text = {`PARABÉNS! \nVOCÊ GANHOU 500 MIL REAIS`} />
+      <ScoreFinal text = {`PARABÉNS! \nVOCÊ GANHOU ` + route.params.score + ` REAIS`} />
       </View>
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
-          <Botao text = 'Jogar novamente'  width= {250} height= {55} onPress = {acessaPerfil}/>
-          <Botao text = 'Ir para tela inicial' width= {250} height= {55} onPress={acessaRanking}/>
+          <Botao text = 'Jogar novamente'  width= {250} height= {55} onPress = {acessaJogo}/>
+          <Botao text = 'Ir para tela inicial' width= {250} height= {55} onPress={TelaInicial}/>
       </View>
 
       <View style={{flex: 2, alignItems: 'center', justifyContent: 'center'}}>
