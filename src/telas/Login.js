@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, Text, ImageBackground, Image, TouchableOpacity, Alert } from 'react-native';
+import {SafeAreaView, View, Text, ImageBackground, Image, TouchableOpacity, Alert} from 'react-native';
 import image from '../img/background_milhao.jpg';
 import logo from '../img/icone_milhao.png';
 import Styles from '../styles/Styles';
