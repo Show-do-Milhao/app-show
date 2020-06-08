@@ -15,7 +15,6 @@ export default function TelaInicial({route, navigation}) {
       <ScoreFinal text = {`PARABÉNS! \nVOCÊ GANHOU ` + route.params.score + ` REAIS`} />
       </View>
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
-          <Botao text = 'Jogar novamente'  width= {250} height= {55} onPress={() => {navigation.navigate('Vamosjogo')}}/>
           <Botao text = 'Ir para tela inicial' width= {250} height= {55} onPress={() => {navigation.navigate('Inicial')}}/>
       </View>
 

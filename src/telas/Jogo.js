@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, ImageBackground, View,} from 'react-native';
+import { SafeAreaView, ImageBackground, View, } from 'react-native';
 import 'react-native-gesture-handler';
 import img from '../img/background_milhao.jpg';
 import Botao from '../components/Botao';
@@ -8,7 +8,7 @@ import Alternativas from '../components/Alternativas';
 import Status from '../components/Status';
 import axios from 'axios';
 
-{var nomeDoPlayer}
+{ var nomeDoPlayer }
 
 class Jogo extends React.Component {
     constructor() {
@@ -17,7 +17,7 @@ class Jogo extends React.Component {
             nickname: '',
             score: 0,
             acertou: 10000,
-            vidas: 10,
+            vidas: 3,
             pulos: 3,
             id: 1,
             pergunta: '',
@@ -33,7 +33,7 @@ class Jogo extends React.Component {
             disabled: 'false'
         }
     }
-    
+
     PegaPergunta = () => {
         axios.post('https://show-do-milhao-app.herokuapp.com/questions', {
             id: this.state.id,
@@ -81,15 +81,12 @@ class Jogo extends React.Component {
             score: this.state.score,
             nickname: this.state.nickname[0],
         })
-        this.props.navigation.navigate('ParaFimDoJogo',{
-            score: this.state.score
-        })
+
     }
     componentDidMount = () => {
         this.PegaPergunta()
         this.setState({ nickname: this.state.nickname = this.props.route.params.nickname })
     }
-
     render() {
         return (
             <SafeAreaView style={{ flex: 1 }} >
@@ -109,6 +106,10 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
+                                    this.props.navigation.navigate('FimDoJogo', {
+                                        score: this.state.score
+                                    })
+
                                 } else {
                                     this.setState({ backgroundColor1: this.state.backgroundColor1 = 'red' })
                                     this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1500);
@@ -128,6 +129,9 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
+                                    this.props.navigation.navigate('FimDoJogo', {
+                                        score: this.state.score
+                                    })
                                 } else {
                                     this.setState({ backgroundColor2: this.state.backgroundColor2 = 'red' })
                                     this.cor = setInterval(() => this.setState({ backgroundColor2: this.state.backgroundColor2 = 'white' }), 1500);
@@ -147,6 +151,9 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
+                                    this.props.navigation.navigate('FimDoJogo', {
+                                        score: this.state.score
+                                    })
                                 } else {
                                     this.setState({ backgroundColor3: this.state.backgroundColor3 = 'red' })
                                     this.cor = setInterval(() => this.setState({ backgroundColor3: this.state.backgroundColor3 = 'white' }), 1500);
@@ -166,6 +173,9 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
+                                    this.props.navigation.navigate('FimDoJogo', {
+                                        score: this.state.score
+                                    })
                                 } else {
                                     this.setState({ backgroundColor4: this.state.backgroundColor4 = 'red' })
                                     this.cor = setInterval(() => this.setState({ backgroundColor4: this.state.backgroundColor4 = 'white' }), 1500);
@@ -181,7 +191,12 @@ class Jogo extends React.Component {
                         <Status text={`Acertar \n` + this.state.acertou} borderColor='green' />
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
-                        <Botao text='Parar' width={140} height={40} onPress={()=>this.props.navigation.navigate('FimDoJogo')}/>
+                        <Botao text='Parar' width={140} height={40} onPress={() =>
+
+                            this.props.navigation.navigate('FimDoJogo', {
+                                score: this.state.score
+
+                            })} />
                         <Botao text={'Pulos ' + this.state.pulos + '/3'} width={140} disabled={this.state.disabled} height={40} style={{ marginLeft: 100 }} onPress={() => {
                             if (this.state.pulos > 0) {
                                 this.setState({ id: this.state.id + 1 }),
@@ -201,5 +216,5 @@ class Jogo extends React.Component {
 export default Jogo;
 
 
-   
+
 

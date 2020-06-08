@@ -33,25 +33,29 @@ class Registrar extends React.Component {
                                 <CaixaDeTexto placeholder='Nickname' onChangeText={nickname => this.setState({ nickname: this.state.nickname = nickname })} />
                                 <CaixaDeTexto placeholder='E-mail' marginTop={20} onChangeText={email => this.setState({ email: this.state.email = email })} />
                                 <CaixaDeSenha placeholder='Senha' marginTop={20} onChangeText={password => this.setState({ password: this.state.password = password })} />
-                                <CaixaDeSenha placeholder='Confirma senha' marginTop={20} onChangeText={pass_confirmation => this.setState({ pass_confirmation: this.state.pass_confirmation = pass_confirmation })}/>
+                                <CaixaDeSenha placeholder='Confirma senha' marginTop={20} onChangeText={pass_confirmation => this.setState({ pass_confirmation: this.state.pass_confirmation = pass_confirmation })} />
                             </View>
                             <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
                                 <Botao width={190} height={55} text='Registre-se'
                                     onPress={() => {
                                         if (this.state.nickname != '' && this.state.email != '' && this.state.password != '' && this.state.pass_confirmation != '') {
-                                            axios.post('https://show-do-milhao-app.herokuapp.com/players', {
-                                                nickname: this.state.nickname,
-                                                email: this.state.email,
-                                                password: this.state.password,
-                                            })
-                                                .then(function (response) {
-                                                    console.log(response);
+                                            if (this.state.password == this.state.pass_confirmation) {
+                                                axios.post('https://show-do-milhao-app.herokuapp.com/players', {
+                                                    nickname: this.state.nickname,
+                                                    email: this.state.email,
+                                                    password: this.state.password,
                                                 })
-                                                .catch(function (error) {
-                                                    console.log(error);
-                                                })
-                                            this.props.navigation.navigate('SeRegistro')
-                                        }else{
+                                                    .then(function (response) {
+                                                        console.log(response);
+                                                    })
+                                                    .catch(function (error) {
+                                                        console.log(error);
+                                                    })
+                                                this.props.navigation.navigate('SeRegistro')
+                                            } else {
+                                                Alert.alert("Erro!", 'As senhas não coincidem');
+                                            }
+                                        } else {
                                             Alert.alert("Erro!", 'Você não preencheu todas os campos');
                                         }
                                     }} />
