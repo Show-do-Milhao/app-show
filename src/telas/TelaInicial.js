@@ -4,11 +4,12 @@ import {SafeAreaView, ImageBackground, View, Text, Image} from 'react-native';
 import img from '../img/background_milhao.jpg';
 import Botao from'../components/Botao';
 import styles from'../styles/Styles';
+import {connect} from 'react-redux';
 
 const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
 
 
-export default function TelaInicial({route, navigation}) {
+function TelaInicial({route, navigation}) {
     const acessaPerfil = () => {
       navigation.navigate('Perfil', {
         nickname: route.params.nickname
@@ -34,7 +35,7 @@ export default function TelaInicial({route, navigation}) {
     <ImageBackground source = {img} style={{flex:1}}>
       <View style={{flex: 2.5, alignItems: 'center', justifyContent: 'space-around'}}>
         <Image source={usuarios} style={styles.foto}></Image>
-        <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>{route.params.nickname}</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>{user}</Text>
       </View>
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
           <Botao text = 'Iniciar Jogo' width= {250} height= {55} onPress={acessaJogo}/>
@@ -50,6 +51,13 @@ export default function TelaInicial({route, navigation}) {
 
   );
 }
+
+const mapStoreToProps = (store) => {
+  return {
+    user: store.user,
+  };
+};
+export default connect(mapStoreToProps)(TelaInicial);
 
 
 

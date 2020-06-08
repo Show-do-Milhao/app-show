@@ -42,13 +42,13 @@ class Login extends React.Component {
                                         password: this.state.password,
                                     })
                                         .then(res => {
-                                            console.log(res)
                                             const nickname = res.data.map(nickname => nickname.nickname)
-                                            this.setState({ nickname })
-                                            console.log(this.state.nickname)
+                                            this.setState({ nickname })                               
                                             const score = res.data.map(score => score.score)
                                             this.setState({ score })
-                                            console.log(this.state.score)
+                                           
+
+                                            this.props.dispatch({type: 'UPDATE_USER', user: {nickname, score}})
                                         })
                                         .catch(function (error) {
                                             console.log(error);
