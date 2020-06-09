@@ -193,7 +193,7 @@ class Jogo extends React.Component {
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
                         <Botao text='Parar' width={140} height={40} onPress={() =>
 
-                            this.props.navigation.navigate('FimDoJogo', {
+                            this.props.navigation.navigate('GameOver', {
                                 score: this.state.score
 
                             })} />
