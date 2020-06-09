@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
 
 
-function TelaInicial({route, navigation}) {
+function TelaInicial({user, route, navigation}) {
     const acessaPerfil = () => {
       navigation.navigate('Perfil', {
         nickname: route.params.nickname
@@ -35,7 +35,7 @@ function TelaInicial({route, navigation}) {
     <ImageBackground source = {img} style={{flex:1}}>
       <View style={{flex: 2.5, alignItems: 'center', justifyContent: 'space-around'}}>
         <Image source={usuarios} style={styles.foto}></Image>
-        <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>{user}</Text>
+        <Text style={{fontSize: 20, fontWeight: 'bold',color: 'white'}}>{user.nickname}</Text>
       </View>
       <View style={{flex:2, alignItems: 'center', justifyContent: 'space-around'}}>
           <Botao text = 'Iniciar Jogo' width= {250} height= {55} onPress={acessaJogo}/>

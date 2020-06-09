@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, Text, ImageBackground, Image, TouchableOpacity, Alert} from 'react-native';
+import { SafeAreaView, View, Text, ImageBackground, Image, TouchableOpacity, Alert } from 'react-native';
 import image from '../img/background_milhao.jpg';
 import logo from '../img/icone_milhao.png';
 import Styles from '../styles/Styles';
@@ -7,6 +7,7 @@ import Botao from '../components/Botao';
 import CaixaDeTexto from '../components/CaixaDeTexto';
 import CaixaDeSenha from '../components/CaixaDeSenha';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 
 class Login extends React.Component {
@@ -43,12 +44,12 @@ class Login extends React.Component {
                                     })
                                         .then(res => {
                                             const nickname = res.data.map(nickname => nickname.nickname)
-                                            this.setState({ nickname })                               
+                                            this.setState({ nickname })
                                             const score = res.data.map(score => score.score)
                                             this.setState({ score })
-                                           
 
-                                            this.props.dispatch({type: 'UPDATE_USER', user: {nickname, score}})
+
+                                            this.props.dispatch({ type: 'UPDATE_USER', user: { nickname, score } })
                                         })
                                         .catch(function (error) {
                                             console.log(error);
@@ -75,5 +76,9 @@ class Login extends React.Component {
         );
     }
 }
-export default Login;
+const mapStoreToProps = ({ user }) => {
+    return { user }
+}
+
+export default connect(mapStoreToProps)(Login);
 
