@@ -37,6 +37,7 @@ function AppAsTelas() {
           <Stack.Screen  name="SeuRanking" component={Ranking} options={{ headerShown: false}}/>
           <Stack.Screen  name="VamosJogo" component={Jogo} options={{ headerShown: false}}/>
           <Stack.Screen  name='FimDoJogo' component={FimDeJogo} options={{ headerShown: false}}/>
+          <Stack.Screen  name='GameOver' component={GameOver} options={{ headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
