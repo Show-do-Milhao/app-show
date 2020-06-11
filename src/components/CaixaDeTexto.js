@@ -3,8 +3,6 @@ import { TextInput } from 'react-native';
 
 
 export default function CaixaDeTexto(props) {
-  // const [value, onChangeText] = React.useState('');
-
   return (
     <TextInput placeholderTextColor= 'white' placeholder= {props.placeholder}
       style={{

@@ -10,9 +10,10 @@ import axios from 'axios';
 
 { var nomeDoPlayer }
 
+
 class Jogo extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             nickname: '',
             score: 0,
@@ -31,7 +32,7 @@ class Jogo extends React.Component {
             backgroundColor3: 'white',
             backgroundColor4: 'white',
             disabled: 'false'
-        }
+        };
     }
 
     PegaPergunta = () => {
@@ -39,34 +40,17 @@ class Jogo extends React.Component {
             id: this.state.id,
         })
             .then(res => {
-                console.log(res)
 
                 const perguntas = res.data.map(question => question.question)
-                this.setState({ perguntas })
-                console.log(this.state.perguntas)
-
                 const resposta_1 = res.data.map(answer_1 => answer_1.answer_1)
-                this.setState({ resposta_1 })
-                console.log(this.state.resposta_1)
-
                 const resposta_2 = res.data.map(answer_2 => answer_2.answer_2)
-                this.setState({ resposta_2 })
-                console.log(this.state.resposta_2)
-
                 const resposta_3 = res.data.map(answer_3 => answer_3.answer_3)
-                this.setState({ resposta_3 })
-                console.log(this.state.resposta_3)
-
                 const resposta_4 = res.data.map(answer_4 => answer_4.answer_4)
-                this.setState({ resposta_4 })
-                console.log(this.state.resposta_4)
-
                 const resposta_correta = res.data.map(answer_correct => answer_correct.answer_correct)
-                this.setState({ resposta_correta })
-                console.log(this.state.resposta_correta)
+
+                this.setState({perguntas , resposta_1, resposta_2,  resposta_3, resposta_4,  resposta_correta })
             })
             .catch(function (error) {
-                console.log(error);
             })
     }
 
@@ -84,8 +68,8 @@ class Jogo extends React.Component {
 
     }
     componentDidMount = () => {
-        this.PegaPergunta()
-        this.setState({ nickname: this.state.nickname = this.props.route.params.nickname })
+       this.PegaPergunta()
+       this.setState({ nickname: this.state.nickname = this.props.route.params.nickname })
     }
     render() {
         return (
@@ -96,12 +80,12 @@ class Jogo extends React.Component {
                     </View>
                     <View style={{ flex: 3, alignItems: 'center', }}>
                         <Alternativas textnumber='1' backgroundColor={this.state.backgroundColor1} text={this.state.resposta_1} onPress={() => {
+                            
                             if (this.state.resposta_correta == 1) {
-                                this.setState({ backgroundColor1: this.state.backgroundColor1 = 'green' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1500);
-                                this.setState({ id: this.state.id + 1 })
+                                this.setState({ backgroundColor1: this.state.backgroundColor1 = 'green', id: this.state.id + 1, score: this.state.score + this.state.acertou })
+                                this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1000);
                                 this.PegaPergunta()
-                                this.Acertou()
+                                //this.Acertou()
                             } else {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
@@ -112,7 +96,7 @@ class Jogo extends React.Component {
 
                                 } else {
                                     this.setState({ backgroundColor1: this.state.backgroundColor1 = 'red' })
-                                    this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1500);
+                                    this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1000);
                                     this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
                                 }
@@ -121,9 +105,9 @@ class Jogo extends React.Component {
                         <Alternativas textnumber='2' backgroundColor={this.state.backgroundColor2} text={this.state.resposta_2} onPress={() => {
                             if (this.state.resposta_correta == 2) {
                                 this.setState({ backgroundColor2: this.state.backgroundColor2 = 'green' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor2: this.state.backgroundColor2 = 'white' }), 1500);
+                                this.cor = setInterval(() => this.setState({ backgroundColor2: this.state.backgroundColor2 = 'white' }), 1000);
                                 this.setState({ id: this.state.id + 1 }),
-                                    this.PegaPergunta()
+                                this.PegaPergunta()
                                 this.Acertou()
                             } else {
                                 this.Errou()
@@ -134,7 +118,7 @@ class Jogo extends React.Component {
                                     })
                                 } else {
                                     this.setState({ backgroundColor2: this.state.backgroundColor2 = 'red' })
-                                    this.cor = setInterval(() => this.setState({ backgroundColor2: this.state.backgroundColor2 = 'white' }), 1500);
+                                    this.cor = setInterval(() => this.setState({ backgroundColor2: this.state.backgroundColor2 = 'white' }), 1000);
                                     this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
                                 }
@@ -143,9 +127,9 @@ class Jogo extends React.Component {
                         <Alternativas textnumber='3' backgroundColor={this.state.backgroundColor3} text={this.state.resposta_3} onPress={() => {
                             if (this.state.resposta_correta == 3) {
                                 this.setState({ backgroundColor3: this.state.backgroundColor3 = 'green' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor3: this.state.backgroundColor3 = 'white' }), 1500);
+                                this.cor = setInterval(() => this.setState({ backgroundColor3: this.state.backgroundColor3 = 'white' }), 1000);
                                 this.setState({ id: this.state.id + 1 }),
-                                    this.PegaPergunta()
+                                this.PegaPergunta()
                                 this.Acertou()
                             } else {
                                 this.Errou()
@@ -156,7 +140,7 @@ class Jogo extends React.Component {
                                     })
                                 } else {
                                     this.setState({ backgroundColor3: this.state.backgroundColor3 = 'red' })
-                                    this.cor = setInterval(() => this.setState({ backgroundColor3: this.state.backgroundColor3 = 'white' }), 1500);
+                                    this.cor = setInterval(() => this.setState({ backgroundColor3: this.state.backgroundColor3 = 'white' }), 1000);
                                     this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
                                 }
@@ -165,7 +149,7 @@ class Jogo extends React.Component {
                         <Alternativas textnumber='4' backgroundColor={this.state.backgroundColor4} text={this.state.resposta_4} onPress={() => {
                             if (this.state.resposta_correta == 4) {
                                 this.setState({ backgroundColor4: this.state.backgroundColor4 = 'green' })
-                                this.cor = setInterval(() => this.setState({ backgroundColor4: this.state.backgroundColor4 = 'white' }), 1500);
+                                this.cor = setInterval(() => this.setState({ backgroundColor4: this.state.backgroundColor4 = 'white' }), 1000);
                                 this.setState({ id: this.state.id + 1 }),
                                     this.PegaPergunta()
                                 this.Acertou()
@@ -178,7 +162,7 @@ class Jogo extends React.Component {
                                     })
                                 } else {
                                     this.setState({ backgroundColor4: this.state.backgroundColor4 = 'red' })
-                                    this.cor = setInterval(() => this.setState({ backgroundColor4: this.state.backgroundColor4 = 'white' }), 1500);
+                                    this.cor = setInterval(() => this.setState({ backgroundColor4: this.state.backgroundColor4 = 'white' }), 1000);
                                     this.setState({ id: this.state.id + 1 })
                                     this.PegaPergunta()
                                 }
@@ -195,7 +179,7 @@ class Jogo extends React.Component {
 
                             this.props.navigation.navigate('FimDoJogo', {
                                 score: this.state.score
-
+                              
                             })} />
                         <Botao text={'Pulos ' + this.state.pulos + '/3'} width={140} disabled={this.state.disabled} height={40} style={{ marginLeft: 100 }} onPress={() => {
                             if (this.state.pulos > 0) {

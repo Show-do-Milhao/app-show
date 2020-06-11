@@ -23,7 +23,7 @@ class BuscarUsuario extends React.Component {
                             <Image source={logo} style={Styles.logo} />
                         </View>
                         <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-                            <CaixaDeTexto placeholder='Digite seu Email' onChangeText={email => this.setState({ email: this.state.email = email })} />
+                            <CaixaDeTexto value={this.state.email} placeholder='Digite seu Email' onChangeText={email => this.setState({ email: this.state.email = email })} />
                         </View>
                         <View style={{ alignItems: "center", flex: 1 }}>
                             <Botao width={190} height={50} text='Buscar' onPress={() => {
@@ -32,18 +32,17 @@ class BuscarUsuario extends React.Component {
                                         email: this.state.email,
                                     })
                                         .then(res => {
-                                            console.log(res)
                                             const email = res.data.map(nicemailkname => email.email)
                                             this.setState({ email })
-                                            console.log(this.state.email)
+                                           
                                         })
                                         .catch(function (error) {
-                                            console.log(error);
                                         })
                                         .finally(() => {
                                             if (this.state.email != '') {
                                                 this.props.navigation.navigate('RedefinirSenha', {
                                                     email: this.state.email,
+                                                    email: this.setState({email:''})
                                                 })
                                             } else {
                                                 Alert.alert("Erro!", 'Email incorreto')
