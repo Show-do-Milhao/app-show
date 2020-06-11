@@ -90,7 +90,7 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
-                                    this.props.navigation.navigate('FimDoJogo', {
+                                    this.props.navigation.navigate('GameOver', {
                                         score: this.state.score
                                     })
 
@@ -113,7 +113,7 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
-                                    this.props.navigation.navigate('FimDoJogo', {
+                                    this.props.navigation.navigate('GameOver', {
                                         score: this.state.score
                                     })
                                 } else {
@@ -135,7 +135,7 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
-                                    this.props.navigation.navigate('FimDoJogo', {
+                                    this.props.navigation.navigate('GameOver', {
                                         score: this.state.score
                                     })
                                 } else {
@@ -157,7 +157,7 @@ class Jogo extends React.Component {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {
                                     this.SalvaDados()
-                                    this.props.navigation.navigate('FimDoJogo', {
+                                    this.props.navigation.navigate('GameOver', {
                                         score: this.state.score
                                     })
                                 } else {
@@ -175,12 +175,14 @@ class Jogo extends React.Component {
                         <Status text={`Acertar \n` + this.state.acertou} borderColor='green' />
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between', marginLeft: 20, marginRight: 20 }}>
-                        <Botao text='Parar' width={140} height={40} onPress={() =>
-
+                        <Botao text='Parar' width={140} height={40} onPress={() =>{
+                            this.SalvaDados(),
                             this.props.navigation.navigate('FimDoJogo', {
                                 score: this.state.score
+
                               
-                            })} />
+                            })}} />
+
                         <Botao text={'Pulos ' + this.state.pulos + '/3'} width={140} disabled={this.state.disabled} height={40} style={{ marginLeft: 100 }} onPress={() => {
                             if (this.state.pulos > 0) {
                                 this.setState({ id: this.state.id + 1 }),
@@ -193,7 +195,6 @@ class Jogo extends React.Component {
                     </View>
                 </ImageBackground>
             </SafeAreaView>
-
         )
     }
 }

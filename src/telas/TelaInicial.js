@@ -9,7 +9,8 @@ import {connect} from 'react-redux';
 const usuarios = {uri: 'https://http2.mlstatic.com/mascara-la-casa-de-papel-top-D_NQ_NP_667175-MLB28219066519_092018-F.jpg'}
 
 
-function TelaInicial({navigation, user}) {
+function TelaInicial({user, route, navigation}) {
+
     const acessaPerfil = () => {
       navigation.navigate('Perfil', {
         nickname: user.nickname,

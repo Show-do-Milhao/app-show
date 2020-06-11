@@ -15,6 +15,7 @@ import RedefinirSenha from './src/telas/RedefinirSenha';
 import Ranking from './src/telas/Ranking'
 import Jogo from './src/telas/Jogo';
 import FimDeJogo from './src/telas/FimDeJogo';
+import GameOver from './src/telas/GameOver';
 
 
 
@@ -22,6 +23,7 @@ const Stack = createStackNavigator();
 
 function AppAsTelas() {
   return (
+
     <Provider store ={store}>
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Login">
@@ -35,6 +37,7 @@ function AppAsTelas() {
           <Stack.Screen  name="SeuRanking" component={Ranking} options={{ headerShown: false}}/>
           <Stack.Screen  name="VamosJogo" component={Jogo} options={{ headerShown: false}}/>
           <Stack.Screen  name='FimDoJogo' component={FimDeJogo} options={{ headerShown: false}}/>
+          <Stack.Screen  name='GameOver' component={GameOver} options={{ headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
