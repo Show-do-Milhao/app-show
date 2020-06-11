@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SafeAreaView, ImageBackground, View } from 'react-native';
 import img from '../img/background_milhao.jpg';
 import Botao from '../components/Botao';
@@ -43,37 +43,34 @@ import { ScrollView } from 'react-native-gesture-handler';
 //       })
 // }
 
-function Ranking({ navigation, dispatch, user }) {
+export default function Ranking({ navigation }) {
+  const [ranking, setRank] = useState([])
+
   axios.get('https://show-do-milhao-app.herokuapp.com/ranking')
     .then(res => {
-      const scorer = res.data.map(uScore => uScore.scorer)
-      const nicknamer = res.data.map(nicknamer => nicknamer.nicknamer)
-      dispatch({type: 'UPDATE_USER', user: {nicknamer, scorer}})
+      const ranking = res.data.map(player => ({ nick: player.nickname , score: player.score}))
+      setRank(ranking)
     })
-    .catch(function(error){
+    .catch(function (error) {
       console.log(error)
     })
   return (
     <SafeAreaView style={{ flex: 1 }} >
       <ImageBackground source={img} style={{ flex: 1 }}>
         <ScrollView>
-        <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around' }}>
+          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around' }}>
 
-          {user.map(nicknamer => (<Text> {nicknamer.nicknamer + nicknamer.scorer} </Text>))}
+            {ranking.map(player => (<ScoreFinal text={player.nick + `\n` + player.score} />))}
 
-        </View>
-        <View style={{ flex: 0.5, alignItems: 'center', justifyContent: 'space-around' }}>
-          <Botao text='Ir para tela inicial' width={250} height={55} onPress={() => { navigation.navigate("Inicial") }} />
-          <Botao text='Sair' width={190} height={55} onPress={() => { navigation.navigate("Login") }} />
-        </View>
+          </View>
+          <View style={{ flex: 0.5, alignItems: 'center', justifyContent: 'space-around' }}>
+            <Botao text='Ir para tela inicial' width={250} height={55} onPress={() => { navigation.navigate("Inicial") }} />
+            <Botao text='Sair' width={190} height={55} onPress={() => { navigation.navigate("Login") }} />
+          </View>
         </ScrollView>
       </ImageBackground>
     </SafeAreaView>
 
   );
 }
-const mapStoreToProps = ({ user }) => {
-  return { user }
-}
 
-export default connect(mapStoreToProps)(Ranking)

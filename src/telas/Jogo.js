@@ -209,7 +209,6 @@ class Jogo extends React.Component {
                     </View>
                 </ImageBackground>
             </SafeAreaView>
-
         )
     }
 }
