@@ -52,25 +52,27 @@ class Login extends React.Component {
 
 
                                             this.props.dispatch({ type: 'UPDATE_USER', user: { nickname, score } })
+                                        })
 
                                         .catch(function (error) {
                                         })
+
                                         .finally(() => {
                                             if (this.state.nickname != '') {
                                                 this.props.navigation.navigate('Inicial', {
                                                     nickname: this.state.nickname,
                                                     score: this.state.score,
-                                                    email: this.setState({email:''}),
-                                                    password: this.setState({password:''})
+                                                    email: this.setState({ email: '' }),
+                                                    password: this.setState({ password: '' })
                                                 })
                                             } else {
                                                 Alert.alert("Erro!", 'Email ou senha incorretos')
-                                                this.setState({email:'', password:''})
+                                                this.setState({ email: '', password: '' })
                                             }
                                         })
                                 } else {
                                     Alert.alert("Erro!", 'Preencha todos os campos')
-                                    this.setState({email:'', password:''})
+                                    this.setState({ email: '', password: '' })
                                 }
                             }} />
                             <Botao width={190} height={50} text='Registre-se' onPress={() => this.props.navigation.navigate('Registra')} />
@@ -81,19 +83,10 @@ class Login extends React.Component {
         );
     }
 }
-<<<<<<< HEAD
-
-const mapStoreToProps = (store) => {
-    return {
-      user: store.user,
-    };
-  };
-  export default connect(mapStoreToProps)(Login);
-=======
 const mapStoreToProps = ({ user }) => {
     return { user }
 }
 
 export default connect(mapStoreToProps)(Login);
->>>>>>> 3a291a157297eaa2c446d559db637863422a9ca4
+
 
