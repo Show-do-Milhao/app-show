@@ -13,7 +13,7 @@ export default function (props) {
                 borderWidth: 1,
                 borderRadius: 10,
                 alignSelf: 'center',
-                backgroundColor: '#00FF00',
+                backgroundColor: '#D18B87',
                 alignItems: 'center',
                 justifyContent: 'center',
                 alignContent: 'center',
