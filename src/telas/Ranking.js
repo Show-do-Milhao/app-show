@@ -48,7 +48,7 @@ export default function Ranking({ navigation }) {
 
   axios.get('https://show-do-milhao-app.herokuapp.com/ranking')
     .then(res => {
-      const ranking = res.data.map(player => ({ nick: player.nickname , score: player.score}))
+      const ranking = res.data.map(player => ({ nick: player.nickname, score: player.score }))
       setRank(ranking)
     })
     .catch(function (error) {
@@ -57,17 +57,17 @@ export default function Ranking({ navigation }) {
   return (
     <SafeAreaView style={{ flex: 1 }} >
       <ImageBackground source={img} style={{ flex: 1 }}>
-        <ScrollView>
-          <View style={{ flex: 1, alignItems: 'center', justifyContent: 'space-around' }}>
+        <ScrollView style={{ marginBottom: 20 }}>
+          <View style={{ alignItems: 'center', justifyContent: 'space-around' }}>
 
             {ranking.map(player => (<ScoreFinal text={player.nick + `\n` + player.score} />))}
 
           </View>
-          <View style={{ flex: 0.5, alignItems: 'center', justifyContent: 'space-around' }}>
-            <Botao text='Ir para tela inicial' width={250} height={55} onPress={() => { navigation.navigate("Inicial") }} />
-            <Botao text='Sair' width={190} height={55} onPress={() => { navigation.navigate("Login") }} />
-          </View>
         </ScrollView>
+        <View style={{ alignItems: 'center', marginBottom: 30, }}>
+          <Botao text='Ir para tela inicial' width={250} height={55} onPress={() => { navigation.navigate("Inicial") }} />
+        </View>
+
       </ImageBackground>
     </SafeAreaView>
 

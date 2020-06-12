@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
+import { color } from 'react-native-reanimated';
+import { withSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function (props) {
     return (
@@ -13,10 +15,15 @@ export default function (props) {
                 borderWidth: 1,
                 borderRadius: 10,
                 alignSelf: 'center',
-                backgroundColor: '#D18B87',
+                backgroundColor: '#708090',
                 alignItems: 'center',
                 justifyContent: 'center',
                 alignContent: 'center',
+                marginTop: 10,
+                color: 'white',
+                textShadowColor: 'black'
+                
+                
             }}>
                 {props.text}
             </Text>
