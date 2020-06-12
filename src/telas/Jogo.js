@@ -85,7 +85,7 @@ class Jogo extends React.Component {
                                 this.setState({ backgroundColor1: this.state.backgroundColor1 = 'green', id: this.state.id + 1, score: this.state.score + this.state.acertou })
                                 this.cor = setInterval(() => this.setState({ backgroundColor1: this.state.backgroundColor1 = 'white' }), 1000);
                                 this.PegaPergunta()
-                                //this.Acertou()
+                                this.Acertou()
                             } else {
                                 this.Errou()
                                 if (this.state.vidas <= 0) {

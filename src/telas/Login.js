@@ -67,12 +67,12 @@ class Login extends React.Component {
                                                 })
                                             } else {
                                                 Alert.alert("Erro!", 'Email ou senha incorretos')
-                                                this.setState({ email: '', password: '' })
+                                                this.setState({password: '' })
                                             }
                                         })
                                 } else {
                                     Alert.alert("Erro!", 'Preencha todos os campos')
-                                    this.setState({ email: '', password: '' })
+                                    this.setState({password: '' })
                                 }
                             }} />
                             <Botao width={190} height={50} text='Registre-se' onPress={() => this.props.navigation.navigate('Registra')} />

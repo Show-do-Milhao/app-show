@@ -50,6 +50,10 @@ export default function Ranking({ navigation }) {
     .then(res => {
       const ranking = res.data.map(player => ({ nick: player.nickname, score: player.score }))
       setRank(ranking)
+      const rankingReduzido = ranking.slice(0, 15)
+      setRank(rankingReduzido)
+      
+
     })
     .catch(function (error) {
       console.log(error)
@@ -60,7 +64,7 @@ export default function Ranking({ navigation }) {
         <ScrollView style={{ marginBottom: 20 }}>
           <View style={{ alignItems: 'center', justifyContent: 'space-around' }}>
 
-            {ranking.map(player => (<ScoreFinal text={player.nick + `\n` + player.score} />))}
+            {ranking.map(player => (<ScoreFinal text={(player.nick + `\n` + player.score)} />))}
 
           </View>
         </ScrollView>

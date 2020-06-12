@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
-import { color } from 'react-native-reanimated';
-import { withSafeAreaInsets } from 'react-native-safe-area-context';
+
 
 export default function (props) {
     return (
